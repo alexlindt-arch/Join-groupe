@@ -1,0 +1,286 @@
+/* ──────────────── Summary main layout ──────────────── */
+.summary-main {
+  display: flex;
+  flex-direction: row;
+  padding: 110px 40px 40px 96px;
+  min-height: calc(100vh - 96px);
+}
+
+.summary-left {
+  flex: 0 0 auto;
+}
+
+.summary-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ──────────────── Heading ──────────────── */
+.summary-heading {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.summary-title {
+  font-size: 61px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1;
+}
+
+.summary-heading-divider {
+  width: 2px;
+  height: 59px;
+  background: #A8A8A8;
+  flex-shrink: 0;
+}
+
+.summary-subtitle {
+  font-size: 27px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* ──────────────── Cards container ──────────────── */
+.summary-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: 24px;
+}
+
+.cards-row {
+  display: flex;
+  gap: 32px;
+}
+
+.cards-row-sm {
+  display: flex;
+  gap: 28px;
+}
+
+/* ──────────────── Large stat card (264×168) ──────────────── */
+.stat-card {
+  width: 264px;
+  height: 168px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.stat-card:hover {
+  background: var(--primaryColor);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.stat-card:hover .stat-number,
+.stat-card:hover .stat-label {
+  color: #ffffff;
+}
+
+.stat-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1;
+  color: #000000;
+}
+
+.stat-label {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* ──────────────── Urgency card (560×168) ──────────────── */
+.urgency-card {
+  width: 560px;
+  height: 168px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 28px 48px;
+  gap: 61px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.urgency-card:hover {
+  background: var(--primaryColor);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: scale(1.03);
+}
+
+.urgency-card:hover .urgency-number,
+.urgency-card:hover .urgency-count-label,
+.urgency-card:hover .urgency-date,
+.urgency-card:hover .urgency-date-label {
+  color: #ffffff;
+}
+
+.urgency-card:hover .urgency-divider-vertical {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.urgency-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.urgency-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FF3D00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.urgency-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.urgency-number {
+  font-size: 64px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.urgency-count-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2A3647;
+}
+
+.urgency-divider-vertical {
+  width: 2px;
+  height: 102px;
+  background: #D1D1D1;
+  flex-shrink: 0;
+}
+
+.urgency-right {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.urgency-date {
+  font-size: 21px;
+  font-weight: 700;
+  color: #2A3647;
+}
+
+.urgency-date-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2A3647;
+}
+
+/* ──────────────── Small stat card (168×168) ──────────────── */
+.stat-card-sm {
+  width: 168px;
+  height: 168px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.stat-card-sm:hover {
+  background: var(--primaryColor);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+}
+
+.stat-card-sm:hover .stat-number,
+.stat-card-sm:hover .stat-label {
+  color: #ffffff;
+}
+
+.stat-card-sm .stat-number {
+  font-size: 64px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1;
+}
+
+.stat-card-sm .stat-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  padding: 0 8px;
+}
+
+/* ──────────────── Greeting ──────────────── */
+.greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.greeting-time {
+  font-size: 47px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.1;
+}
+
+.greeting-name {
+  font-size: 47px;
+  font-weight: 700;
+  color: var(--secondaryColor);
+  line-height: 1.1;
+}

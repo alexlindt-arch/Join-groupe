@@ -1,0 +1,154 @@
+body.app-page {
+  flex-direction: row;
+  align-items: stretch;
+  background: #F6F7F8;
+  overflow: hidden;
+}
+
+/* ──────────────── Sidebar ──────────────── */
+.sidebar {
+  width: 232px;
+  min-height: 100vh;
+  background: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0 59px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.sidebar-logo-link {
+  display: block;
+}
+
+.sidebar-logo {
+  width: 101px;
+  height: 122px;
+  display: block;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 72px;
+  gap: 15px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 56px;
+  height: 46px;
+  color: #CDCDCD;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item:hover,
+.nav-item--active {
+  background: var(--activeColor);
+  color: #ffffff;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1) brightness(0.8);
+  flex-shrink: 0;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item--active .nav-icon {
+  filter: brightness(0) invert(1);
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-footer-link {
+  color: #A8A8A8;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.15s;
+}
+
+.sidebar-footer-link:hover {
+  color: #ffffff;
+}
+
+/* ──────────────── Main wrapper ──────────────── */
+.main-wrapper {
+  margin-left: 232px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* ──────────────── Header ──────────────── */
+.main-header {
+  height: 96px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.help-link {
+  display: flex;
+  align-items: center;
+}
+
+.help-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--secondaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+}

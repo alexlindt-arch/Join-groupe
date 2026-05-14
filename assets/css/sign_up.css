@@ -1,0 +1,254 @@
+.signup-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    z-index: 999;
+    padding: 80px;
+    position: absolute;
+}
+
+
+.signup-logo {
+    width: 100px;
+    height: 122px;
+}
+
+
+.signup-section {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.signup-span {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+
+.signup-button {
+    background-color: var(--primaryColor);
+    color: white;
+    border: unset;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 21px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.signup-button:hover {
+    background-color: var(--secondaryColor);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.signup-section-div {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #F6F7F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 160px 120px 40px;
+    gap: 32px;
+}
+
+
+.signup-form-card {
+    width: 650px;
+    padding: 48px 115px;
+    border-radius: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+}
+
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.header-login {
+    height: 73px;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 75px;
+    letter-spacing: 0em;
+    color: black;
+    text-align: center;
+}
+
+
+.border-login {
+    width: 140px;
+    height: 3px;
+    background: #29ABE2;
+}
+
+
+.login-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+
+.input {
+    width: 422px;
+    height: 48px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    padding: 12px 20px 12px 20px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    text-align: left;
+    color: black;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+
+input:focus {
+    outline: 1px solid #29ABE2;
+}
+
+
+.email-icon {
+    margin-left: -40px;
+    cursor: pointer;
+}
+
+
+.signup-policy-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: black;
+    margin-top: 8px;
+}
+
+
+.signup-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primaryColor);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+
+.policy-link {
+    color: var(--secondaryColor);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+.policy-link:hover {
+    text-decoration: underline;
+}
+
+
+.message-box {
+    font-size: 10px;
+    color: red;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 17px;
+    height: 10px;
+    margin-left: 5px;
+}
+
+
+.login-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 48px;
+    gap: 35px;
+    margin-top: 32px;
+}
+
+
+.button-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 113px;
+    height: 48px;
+    padding: 15px 24px 15px 24px;
+    border-radius: 8px;
+    gap: 10px;
+    background: #2A3647;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    border: unset;
+    transition: background-color 100ms, box-shadow 100ms;
+}
+
+
+.button-login:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.policy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    color: #A8A8A8;
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 24px;
+}
+
+
+.privacy-policy,
+.legal-notice {
+    cursor: pointer;
+    color: #A8A8A8;
+    text-decoration: none;
+}
+
+
+.legal-notice:hover,
+.privacy-policy:hover {
+    color: #29ABE2;
+    font-weight: 700;
+}
