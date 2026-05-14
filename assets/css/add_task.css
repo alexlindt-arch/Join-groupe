@@ -1,0 +1,209 @@
+.add-task-main {
+  padding: 64px 40px 64px 96px;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 61px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.task-form {
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  padding: 48px;
+}
+
+.form-columns {
+  display: flex;
+  gap: 32px;
+}
+
+.form-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-divider-vertical {
+  width: 2px;
+  background: #D1D1D1;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.required {
+  color: #FF8190;
+}
+
+.form-input {
+  height: 48px;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-input:focus {
+  border-color: var(--secondaryColor);
+}
+
+.form-input::placeholder {
+  color: #D1D1D1;
+}
+
+.form-textarea {
+  height: 120px;
+  padding: 12px 16px;
+  resize: none;
+}
+
+.form-input-icon {
+  position: relative;
+}
+
+.form-input-icon .form-input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+/* Prio buttons */
+.prio-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.prio-btn {
+  flex: 1;
+  height: 48px;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.prio-btn:hover {
+  background: #F6F7F8;
+}
+
+.prio-urgent.prio-active {
+  background: #FF3D00;
+  color: #ffffff;
+  border-color: #FF3D00;
+}
+
+.prio-medium.prio-active {
+  background: #FFA800;
+  color: #ffffff;
+  border-color: #FFA800;
+}
+
+.prio-low.prio-active {
+  background: #7AE229;
+  color: #ffffff;
+  border-color: #7AE229;
+}
+
+/* Form footer */
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #D1D1D1;
+}
+
+.required-hint {
+  font-size: 14px;
+  color: #000000;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-clear {
+  height: 56px;
+  padding: 0 32px;
+  border: 1px solid #2A3647;
+  border-radius: 10px;
+  background: #F6F7F8;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primaryColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-clear:hover {
+  background: #ffffff;
+  border-color: var(--primaryColor);
+}
+
+.btn-create {
+  height: 56px;
+  padding: 0 32px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primaryColor);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s;
+}
+
+.btn-create:hover {
+  background: var(--activeColor);
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
