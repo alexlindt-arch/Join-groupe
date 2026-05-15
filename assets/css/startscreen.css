@@ -205,11 +205,7 @@ input:focus {
 }
 
 .policy {
-    position: absolute;
-    top: 949px;
-    left: 597px;
-    width: 246px;
-    height: 35px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
