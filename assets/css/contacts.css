@@ -1,0 +1,10 @@
+@import url(shared.css);
+
+/* Local Contact Style */
+
+.contacts-main {
+    display: flex;
+    flex-direction: row;
+    padding: 110px 40px 40px 96px;
+    min-height: calc(100vh - 96px);
+}
