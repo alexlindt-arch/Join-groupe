@@ -100,45 +100,50 @@
 /* Prio buttons */
 .prio-buttons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }
 
 .prio-btn {
   flex: 1;
-  height: 48px;
-  border: 1px solid #D1D1D1;
+  height: 56px;
+  border: none;
   border-radius: 10px;
   background: #ffffff;
+  box-shadow: 0px 0px 4px 0px #0000001A;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
 }
 
-.prio-btn:hover {
-  background: #F6F7F8;
+.prio-btn:hover:not(.prio-active) {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .prio-urgent.prio-active {
   background: #FF3D00;
   color: #ffffff;
-  border-color: #FF3D00;
+  box-shadow: none;
 }
 
 .prio-medium.prio-active {
   background: #FFA800;
   color: #ffffff;
-  border-color: #FFA800;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
 }
 
 .prio-low.prio-active {
   background: #7AE229;
   color: #ffffff;
-  border-color: #7AE229;
+  box-shadow: none;
 }
 
 /* Form footer */
