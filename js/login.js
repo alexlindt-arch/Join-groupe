@@ -13,3 +13,15 @@ function checkActualForm(form1, form2) {
         document.getElementById('signup-btn').classList.add('d-none');
     }
 }
+
+function validateSignupForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    const checkPolicy = document.getElementById('checkPolicy').checked;
+    const btn = document.getElementById('signupSubmitBtn');
+
+    const isValid = name && email && password && passwordConfirm && password === passwordConfirm && checkPolicy;
+    btn.disabled = !isValid;
+}
