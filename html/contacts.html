@@ -61,10 +61,10 @@
 
         <main class="contacts-main">
 
-            <div class="contacts-split-left">
+            <section class="contacts-split-left">
 
                 <div class="btn-add-contact">
-                    <button type="button">Create New Contact</button>
+                    <button type="button" onclick="openDialog()">Create New Contact</button>
                 </div>
 
                 <div class="contacts-list">
@@ -93,7 +93,7 @@
                         <h2 class="letter-group-title">B</h2>
 
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">BZ</div>
+                            <div class="avatar gray">BZ</div>
                             <div class="contact-info">
                                 <span class="name">Benedikt Ziegler</span>
                                 <span class="email">benedikt@gmail.com</span>
@@ -106,7 +106,7 @@
                         <h2 class="letter-group-title">D</h2>
 
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">DE</div>
+                            <div class="avatar yellow">DE</div>
                             <div class="contact-info">
                                 <span class="name">David Eisenberg</span>
                                 <span class="email">david@gmail.com</span>
@@ -118,14 +118,14 @@
                         <h2 class="letter-group-title">E</h2>
 
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EF</div>
+                            <div class="avatar lila">EF</div>
                             <div class="contact-info">
                                 <span class="name">Eva Fischer</span>
                                 <span class="email">eva@gmail.com</span>
                             </div>
                         </div>
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EM</div>
+                            <div class="avatar blue">EM</div>
                             <div class="contact-info">
                                 <span class="name">Emmanuel Mauer</span>
                                 <span class="email">emmanuel@gmail.com</span>
@@ -137,14 +137,14 @@
                         <h2 class="letter-group-title">E</h2>
 
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EF</div>
+                            <div class="avatar green">EF</div>
                             <div class="contact-info">
                                 <span class="name">Eva Fischer</span>
                                 <span class="email">eva@gmail.com</span>
                             </div>
                         </div>
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EM</div>
+                            <div class="avatar red">EM</div>
                             <div class="contact-info">
                                 <span class="name">Emmanuel Mauer</span>
                                 <span class="email">emmanuel@gmail.com</span>
@@ -156,14 +156,14 @@
                         <h2 class="letter-group-title">E</h2>
 
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EF</div>
+                            <div class="avatar gray">EF</div>
                             <div class="contact-info">
                                 <span class="name">Eva Fischer</span>
                                 <span class="email">eva@gmail.com</span>
                             </div>
                         </div>
                         <div class="contact-item" id="id-placeholder">
-                            <div class="avatar orange">EM</div>
+                            <div class="avatar yellow">EM</div>
                             <div class="contact-info">
                                 <span class="name">Emmanuel Mauer</span>
                                 <span class="email">emmanuel@gmail.com</span>
@@ -172,9 +172,9 @@
                     </div>
 
                 </div>
-            </div>
+            </section>
 
-            <div class="contacts-split-right">
+            <section class="contacts-split-right">
 
                 <div class="brand-header">
                     <h1 class="brand-title">Contacts</h1>
@@ -182,20 +182,80 @@
                     <span class="brand-subtitle">Better with a team</span>
                 </div>
 
-                <div class="details-placeholder" id="details-contact" role="complementary" aria-labelledby="details-heading"></div>
-                    <p>Please select a contact to get more details.</p>
+                <div class="contact-profile" id="contact${id}" role="complementary" aria-labelledby="details-heading">
+
+                    <div class="profile-header">
+                        <div class="profile-avatar orange">AM</div>
+                        <div class="profile-meta">
+                            <h2 class="profile-name">Anton Mayer</h2>
+                            <div class="profile-actions">
+                                <button type="button" class="profile-btn"><img src="../assets/icons/edit_contacts.svg"
+                                        alt="edit"> Edit</button>
+                                <button type="button" class="profile-btn"><img src="../assets/icons/delete.svg"
+                                        alt="delete"> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-body">
+                        <h3 class="section-title">Contact Information</h3>
+
+                        <div class="info-group">
+                            <label class="info-label">E-mail</label>
+                            <span class="info-value email-link">antonm@gmail.com</span>
+                        </div>
+
+                        <div class="info-group">
+                            <label class="info-label">Phone</label>
+                            <span class="info-value">+49 1111111111</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-
-        </main>
+            </section>
     </div>
 
+    <dialog id="add-contact-dialog" onclick="closeDialog()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-left">
+                <div class="modal-logo"><img src="../assets/img/logo_white.svg" alt="join icon"></div>
+                <h2>Add contact</h2>
+                <p class="modal-tagline">Tasks are better with a team!</p>
+            </div>
+
+            <form method="dialog" class="modal-right">
+                <button type="button" class="close-dialog" onclick="closeDialog()">×</button>
+
+                <div class="profile-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Name" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" placeholder="Phone">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeDialog()"> Cancel <i class="fa-solid fa-xmark"></i></button>
+                    <button type="submit" class="btn-submit"> Create contact <i class="fa-solid fa-check"></i></button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+
+
     <script src="../script.js"></script>
-</body>
-
-</html>
-
+    <script src="/js/contacts.js"></script>
 
 </body>
 

@@ -2,64 +2,98 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./assets/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="./assets/icons/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="./assets/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./assets/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./assets/icons/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Login</title>
 </head>
 
 <body>
-    <div class="start-screen"></div>
-    <img class="logo-start-screen" src="./assets/img/logo_big.svg" alt="Join Logo">
-    <div class="signup-header">
-        <div class="signup-section">
-            <span class="signup-span">Not a Join user?</span>
-            <button class="signup-button" onclick="location.href='./html/sign_up.html'">Sign up</button>
+  <div class="logo-container">
+    <img class="logo-animated" src="./assets/img/logo_big.svg" alt="JOIN" />
+  </div>
+  <div class="full-height fade-in">
+    <div class="topbar">
+      <div id="signup-btn" class="signup-btn">
+        <span>Not a Join user?</span>
+        <button class="btn btn-primary" onclick="changeForm('login', 'signup')">
+          Sign up
+        </button>
+      </div>
+    </div>
+    <div id="message" class="message d-none"></div>
+    <div class="card">
+      <div id="login" class="login">
+        <h2 class="custom-h2">Log in</h2>
+        <div class="divider"></div>
+        <form action="" class="login-form">
+          <div class="input-icon">
+            <input class="field" type="email" placeholder="Email" id="emailLogin" autocomplete="email" required />
+            <img class="icon icon-email" src="./assets/icons/mail.svg" alt="email icon" />
+          </div>
+          <div class="input-icon">
+            <input class="field" type="password" placeholder="Password" id="pwLogin" autocomplete="current-password"
+              required />
+            <img class="icon icon-password" src="./assets/icons/lock.svg" alt="password icon" />
+          </div>
+        </form>
+        <div class="form-btn">
+          <button class="btn btn-primary" onclick="">Log in</button>
+          <button class="btn btn-secondary" onclick="location.href='./html/summary.html'">
+            Guest Log in
+          </button>
         </div>
-    </div>
+      </div>
 
-    <div class="login-section-div">
-        <div class="login-section">
-            <div class="header-section">
-                <div class="header-login">Log in</div>
-                <div class="border-login"></div>
-            </div>
-            <form id="loginForm" onsubmit="return false;">
-                <div class="login-fields">
-                    <div class="login-container">
-                        <input type="email" id="email" autocomplete="off" class="input" placeholder="Email">
-                        <img class="email-icon" src="./assets/icons/mail.svg">
-                    </div>
-                    
-                    <div class="login-container">
-                        <input type="password" id="password" autocomplete="off" class="input" placeholder="Password">
-                        <img class="email-icon" src="./assets/icons/lock.svg">
-                    </div>
-                    <div class="login-buttons">
-                        <button type="submit" class="button-login" onclick="">Log In</button>
-                        <button type="button" class="button-guest" id="guestButton" onclick="location.href='./html/summary.html'">Guest Log
-                            In</button>
-                    </div>
-                    <div class="message-box"></div>
-            </form>
+      <div id="signup" class="signup d-none">
+        <img class="nav-icon icon-arrow" alt="Zurück" src="./assets/icons/arrow-left-line.svg"
+          onclick="changeForm('signup', 'login')" />
+        <div class="top">
+          <h2 class="custom-h2">Sign Up</h2>
         </div>
+        <div class="divider"></div>
+        <form onsubmit="return false;" class="login-form">
+          <div class="input-icon">
+            <input class="field" type="text" placeholder="Name" id="name" autocomplete="name" oninput="validateSignupForm()" required />
+            <img class="icon icon-name" src="./assets/icons/person.svg" alt="email icon" />
+          </div>
+          <div class="input-icon">
+            <input class="field" type="email" placeholder="Email" id="email" autocomplete="email" oninput="validateSignupForm()" required />
+            <img class="icon icon-email" src="./assets/icons/mail.svg" alt="email icon" />
+          </div>
+          <div class="input-icon">
+            <input class="field" type="password" placeholder="Password" id="password" autocomplete="current-password"
+              oninput="validateSignupForm()" required />
+            <img class="icon icon-password" src="./assets/icons/lock.svg" alt="password icon" />
+          </div>
+          <div class="input-icon">
+            <input class="field" type="password" placeholder="Confirm password" id="passwordConfirm" oninput="validateSignupForm()" required />
+            <img class="icon icon-password" src="./assets/icons/lock.svg" alt="password icon" />
+          </div>
+
+          <div class="check-policy">
+            <input id="checkPolicy" class="checkbox" type="checkbox" onchange="validateSignupForm()" required />
+            <div class="label" for="checkbox">I accept the</div>
+            <a href="./html/privacy_policy.html">Privacy policy</a>
+          </div>
+          <button id="signupSubmitBtn" class="btn btn-primary" type="submit" disabled>Sign up</button>
+        </form>
+      </div>
     </div>
 
-    <div class="footer">
-        <div class="policy">
-        <span onclick="location.href='./html/privacy_policy.html'" class="privacy-policy">Privacy Policy</span>
-        <span onclick="location.href='./html/legal_notice.html'" class="legal-notice">Legal notice</span>
+    <div class="footer-menu">
+      <ul>
+        <li><a href="./html/privacy_policy.html">Privacy Policy</a></li>
+        <li><a href="./html/legal_notice.html">Legal Notice</a></li>
+      </ul>
     </div>
-
-    </div>
-    
 </body>
-
+<script src="./js/login.js"></script>
 <script src="script.js"></script>
 
 </html>

@@ -135,7 +135,27 @@
     background-color: #9d26ff;
 }
 
-/* Rechte Spalte der Kontaktseite */
+.blue {
+    background-color: #3b91ff;
+}
+
+.green {
+    background-color: #00c853;
+}
+
+.red {
+    background-color: #ff1744;
+}
+
+.gray {
+    background-color: #9e9e9e;
+}
+
+.yellow {
+    background-color: #ffeb3b;
+}
+
+/* right split of contactsite */
 
 .contacts-split-right {
     display: flex;
@@ -171,4 +191,255 @@
     font-size: 14px;
     color: #2c3e50;
     font-weight: 400;
+}
+
+/* Profile Styles */
+
+.contact-profile {
+    padding: 10px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-avatar.orange {
+    background-color: #ff7b00;
+}
+
+.profile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-name {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    color: #555555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-btn:hover {
+    color: #000000;
+}
+
+.profile-btn .icon {
+    font-size: 14px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 25px;
+}
+
+.info-group {
+    margin-bottom: 20px;
+}
+
+.info-label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    display: block;
+    font-size: 14px;
+    color: #444444;
+}
+
+.info-value.email-link {
+    color: #3b91ff;
+}
+
+/* Modal Styles */
+
+#add-contact-dialog {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 850px;
+    width: 90%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: fixed;      
+    top: 50%;             
+    left: 50%;            
+    margin: 0;            
+    transform: translate(-50%, -50%);
+}
+
+#add-contact-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    display: flex;
+    min-height: 450px;
+}
+
+.modal-left {
+    background-color: #2b3647;
+    color: white;
+    width: 40%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.modal-logo {
+    font-weight: 900;
+    font-size: 24px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.logo-on {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.modal-left h2 {
+    font-size: 38px;
+    margin: 0 0 10px 0;
+}
+
+.modal-tagline {
+    border-bottom: 2px solid #3b91ff;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+.modal-right {
+    background: white;
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.close-dialog {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.profile-placeholder {
+    width: 80px;
+    height: 80px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.modal-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    background: #f1f5f9;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-submit {
+    background: #2b3647;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
