@@ -366,7 +366,7 @@
     height: 110px;
     flex: none;
     border-radius: 20px;
-    padding: 0 17px;
+    padding: 0 19px;
     gap: 10px;
     flex-direction: row;
     align-items: center;
@@ -387,14 +387,14 @@
     justify-content: center;
   }
 
-  .urgency-left { gap: 12px; }
+  .urgency-left { gap: 18px; }
 
   .urgency-icon-circle { width: 40px; height: 40px; }
   .urgency-info { gap: 2px; }
   .urgency-number { font-size: 47px; }
   .urgency-count-label { font-size: 13px; }
   .urgency-divider-vertical { height: 68px; }
-  .urgency-right { gap: 4px; }
+  .urgency-right { gap: 8px; }
   .urgency-date { font-size: 16px; font-weight: 700; }
   .urgency-date-label { font-size: 13px; }
 

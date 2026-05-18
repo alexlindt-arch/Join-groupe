@@ -69,6 +69,7 @@ body.app-page {
 }
 
 .nav-icon {
+  position: static;
   width: 30px;
   height: 30px;
   filter: brightness(0) invert(1) brightness(0.8);
