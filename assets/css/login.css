@@ -13,6 +13,8 @@
     align-items: center;
     justify-content: space-between;
     height: 100vh;
+    animation: contentFadeIn 1s forwards 1.3s;
+    opacity: 0;
 }
 
 .opacity-0 {
@@ -143,11 +145,6 @@ button:disabled {
     }
 }
 
-.full-height {
-    animation: contentFadeIn 1s forwards 1.3s;
-    opacity: 0;
-}
-
 .divider {
     margin-top: -18px;
     width: 140px;
@@ -174,14 +171,6 @@ button:disabled {
 
 .field::placeholder {
     color: #D1D1D1;
-}
-
-.icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
 }
 
 .card {

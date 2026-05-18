@@ -311,78 +311,120 @@
 /* ── Mobile ── */
 @media (max-width: 480px) {
   .summary-main {
-    flex-direction: column-reverse;
-    padding: 24px 16px 24px;
+    flex-direction: column;
+    padding: 48px 16px 24px;
     min-height: auto;
-    gap: 32px;
+    gap: 20px;
   }
 
   .summary-left { width: 100%; }
 
+  @keyframes greetingFadeOut {
+    to { opacity: 0; visibility: hidden; }
+  }
+
   .summary-right {
-    justify-content: flex-start;
-    padding: 0;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: #F6F7F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: greetingFadeOut 0.5s ease-in-out 2s forwards;
+    pointer-events: none;
+  }
+
+  .greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
   }
 
   .summary-heading {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
 
+  .summary-title { font-size: 47px; }
+  .summary-subtitle { font-size: 20px; color: #2A3647; }
+
   .summary-heading-divider {
-    width: 64px;
+    width: 90px;
     height: 3px;
   }
 
-  .summary-title { font-size: 32px; }
-  .summary-subtitle { font-size: 15px; }
-
   .summary-cards { gap: 16px; }
 
-  .cards-row { gap: 12px; }
+  .cards-row { justify-content: space-between; }
+
   .stat-card {
-    width: auto;
-    flex: 1;
-    min-width: 0;
-    height: auto;
-    padding: 20px 12px;
-    gap: 12px;
+    width: 186px;
+    height: 110px;
+    flex: none;
     border-radius: 20px;
+    padding: 0 17px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .stat-icon-circle { width: 52px; height: 52px; }
-  .stat-icon { width: 24px; height: 24px; }
-  .stat-number { font-size: 40px; }
-  .stat-label { font-size: 14px; }
+  .stat-icon-circle { width: 40px; height: 40px; }
+  .stat-icon { width: 20px; height: 20px; }
+  .stat-info { gap: 2px; }
+  .stat-number { font-size: 47px; line-height: 1; }
+  .stat-label { font-size: 16px; }
 
   .urgency-card {
     width: 100%;
-    height: auto;
-    padding: 20px 24px;
-    gap: 24px;
+    height: 110px;
+    padding: 28px 0;
+    gap: 20px;
     border-radius: 20px;
+    justify-content: center;
   }
 
-  .urgency-number { font-size: 40px; }
-  .urgency-divider-vertical { height: 56px; }
-  .urgency-date { font-size: 16px; }
+  .urgency-left { gap: 12px; }
+
+  .urgency-icon-circle { width: 40px; height: 40px; }
+  .urgency-info { gap: 2px; }
+  .urgency-number { font-size: 47px; }
+  .urgency-count-label { font-size: 13px; }
+  .urgency-divider-vertical { height: 68px; }
+  .urgency-right { gap: 4px; }
+  .urgency-date { font-size: 16px; font-weight: 700; }
   .urgency-date-label { font-size: 13px; }
 
-  .cards-row-sm { gap: 10px; }
+  .cards-row-sm { justify-content: space-between; }
+
   .stat-card-sm {
-    flex: 1;
-    min-width: 0;
-    width: auto;
-    height: auto;
-    padding: 16px 8px;
-    gap: 8px;
+    width: 116px;
+    height: 116px;
+    flex: none;
+    padding: 25px 0;
+    gap: 13px;
     border-radius: 20px;
   }
-  .stat-card-sm .stat-number { font-size: 36px; }
-  .stat-card-sm .stat-label { font-size: 13px; }
 
-  .greeting-time { font-size: 22px; }
-  .greeting-name { font-size: 32px; }
+  .stat-card-sm .stat-number { font-size: 47px; }
+  .stat-card-sm .stat-label { font-size: 16px; }
+
+  .greeting-time {
+    font-size: 36px;
+    font-weight: 400;
+    color: #2A3647;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .greeting-name {
+    font-size: 47px;
+    font-weight: 700;
+    color: #29ABE2;
+    text-align: center;
+    line-height: 1.2;
+  }
 }

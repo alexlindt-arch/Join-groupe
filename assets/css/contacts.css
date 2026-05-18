@@ -1,5 +1,3 @@
-@import url(shared.css);
-
 /*Contact Style */
 
 .contacts-main {
@@ -123,6 +121,36 @@
 .contact-item:hover .avatar {
     outline: 2px solid #ffffff;
     outline-offset: -2px;
+}
+
+/* Color for avatars */
+
+.orange {
+    background-color: #ff7b00;
+}
+
+.lila {
+    background-color: #9d26ff;
+}
+
+.blue {
+    background-color: #3b91ff;
+}
+
+.green {
+    background-color: #00c853;
+}
+
+.red {
+    background-color: #ff1744;
+}
+
+.gray {
+    background-color: #9e9e9e;
+}
+
+.yellow {
+    background-color: #ffeb3b;
 }
 
 /* right split of contactsite */
