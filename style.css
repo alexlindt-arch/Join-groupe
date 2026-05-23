@@ -16,7 +16,6 @@
 body {
     background-color: var(--background);
     min-height: 100dvh;
-    /* Mindesthöhe: ganzer Bildschirm */
 }
 
 .d-none {
@@ -131,7 +130,6 @@ button:disabled {
     width: 422px;
     height: 50px;
     padding: 12px 42px 12px 21px;
-    /* Rechts Platz für das Icon */
     border-radius: 10px;
     border: 1px solid var(--light-gray-2);
     background: var(--white);
@@ -157,7 +155,6 @@ textarea.input-field {
 
 select.input-field {
     appearance: none;
-    /* Standard-Pfeil entfernen */
     -webkit-appearance: none;
     background-image: url('../img/arrow_dropdown.svg');
     background-repeat: no-repeat;
@@ -171,7 +168,6 @@ select.input-field {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    /* Icon ist nicht anklickbar */
     width: 20px;
     height: 20px;
 }
@@ -191,7 +187,6 @@ input[type='checkbox'] {
     height: 18px;
     cursor: pointer;
     accent-color: var(--primaryColor);
-    /* Farbe der Checkbox */
 }
 
 input[type='date'] {
@@ -208,7 +203,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
     cursor: pointer;
     position: absolute;
     inset: 0;
-    /* Füllt den gesamten Eingabebereich */
     width: auto;
     height: auto;
 }
@@ -217,16 +211,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Position: zentriert auf dem Bildschirm */
     position: fixed;
     top: 100%;
-    /* Startposition: unten außerhalb des Bildschirms */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
-
-    /* Aussehen */
     color: var(--white);
     font-size: 16px;
     background-color: rgba(42, 54, 71, 0.9);
@@ -235,8 +224,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
     border: 1px solid var(--light-gray-2);
     box-shadow: 0 4px 20px var(--shadow-1);
     text-align: center;
-
-    /* Animation: erst nach oben fahren, dann ausblenden */
     animation: messageStartup 0.5s forwards ease-in-out,
         messageHide 0.5s 1s forwards ease-in-out;
 }
@@ -299,9 +286,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
     flex-direction: column;
     align-items: flex-start;
     margin-left: 248px;
-    /* Platz für die Sidebar (248px breit) */
     margin-top: 80px;
-    /* Platz für den Header (80px hoch) */
     padding: 48px 56px;
     min-height: calc(100vh - 80px);
 }
