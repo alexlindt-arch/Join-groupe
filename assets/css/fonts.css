@@ -1,4 +1,11 @@
+/* ==========================================================================
+   SCHRIFTEN.CSS – Schriftart-Einbindung
+   ==========================================================================
+   Hier wird die Schriftart "Inter" von Google Fonts geladen.
+   Inter ist eine moderne, gut lesbare Schrift für Web-Anwendungen.
+   ========================================================================== */
 
+/* Fonts: Inter Schriftart laden */
 /* inter-100 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -142,4 +149,52 @@
   font-style: italic;
   font-weight: 900;
   src: url('../fonts/inter-v20-latin-900italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* --- Grundeinstellungen für alle Elemente --- */
+* {
+    /* Schriftart für die gesamte Seite */
+    font-family: 'Inter', sans-serif;
+    /* Box-Sizing: padding und border werden zur Breite dazugezählt */
+    box-sizing: border-box;
+    /* Abstände auf null setzen */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Schriftgrößen für Überschriften --- */
+h1 { font-size: 5rem; font-weight: 700; }
+h2 { font-size: 3rem; font-weight: 700; }
+h3 { font-size: 2.5rem; font-weight: 700; }
+h4 { font-size: 2rem; font-weight: 700; color: var(--primaryColor); }
+h5 { font-size: 1.5rem; font-weight: 700; color: var(--primaryColor); }
+h6 { font-size: 1rem; font-weight: 400; }
+
+/* --- Verlinkungen --- */
+a {
+    text-decoration: none;  /* Keine Unterstreichung */
+    color: inherit;         /* Farbe vom Elternelement erben */
+}
+
+/* --- Listen ohne Aufzählungspunkte --- */
+ul, ol {
+    list-style: none;
+}
+
+/* --- Scrollbar Styling (nur für Webkit-Browser wie Chrome, Edge) --- */
+*::-webkit-scrollbar {
+    width: 8px;             /* Breite der Scrollbar */
+    margin-left: 4px;
+}
+
+/* Hintergrund der Scrollbar */
+*::-webkit-scrollbar-track {
+    background: var(--light-gray-2);
+    border-radius: 5px;
+}
+
+/* Der bewegliche Teil der Scrollbar */
+*::-webkit-scrollbar-thumb {
+    background: var(--primaryColor);
+    border-radius: 5px;
 }

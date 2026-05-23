@@ -1,315 +1,394 @@
-.topbar {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    margin-top: 40px;
+@keyframes hintergrundMobilAnimation {
+    0%, 65% {
+        background-color: var(--primaryColor);
+    }
+    100% {
+        background-color: var(--background);
+    }
+}
+
+/* Auf dem Handy: dunkler Start-Bildschirm, der zu Grau wechselt */
+.login-seite {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    animation: hintergrundMobilAnimation 2s forwards ease-in-out;
+}
+
+/* Auf Tablet und Desktop: direkt grauer Hintergrund (kein geteilter Hintergrund!) */
+@media (min-width: 769px) {
+    .login-seite {
+        background-color: var(--background);
+        animation: none;
+    }
 }
 
 
-.full-height {
+/* ==========================================================================
+   LOGO-ANIMATION – Logo fährt von der Mitte nach oben links
+   ========================================================================== */
+
+/* Logo startet in der Mitte des Bildschirms (passend zum 0%-Keyframe der Animation) */
+.login-logo-animated {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    animation: logoAnimation 1.5s forwards ease-in-out;
+}
+
+/* Logos auf einheitliche Höhe setzen */
+.login-logo-animated img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* Mobile: Logo synchron mit dem Hintergrund wechseln
+   - Auf dunklem Hintergrund: dunkles Logo wird durch Filter weiß gemacht
+   - Nach der Animation: Filter weg → Logo erscheint dunkel auf grauem Hintergrund */
+@keyframes logoFarbwechsel {
+    0%, 65% { filter: brightness(0) invert(1); } /* weiß auf dunklem Hintergrund */
+    100%     { filter: none; }                    /* dunkel auf grauem Hintergrund */
+}
+
+/* Auf dem Handy: weißes Logo sichtbar, dunkles Logo versteckt */
+.login-logo-animated .logo-dark {
+    display: none;
+}
+.login-logo-animated .logo-white {
+    display: block;
+}
+
+/* Auf Tablet und Desktop: dunkles Logo zeigen, weißes verstecken */
+@media (min-width: 769px) {
+    .login-logo-animated .logo-dark { display: block; }
+    .login-logo-animated .logo-white  { display: none; }
+}
+
+/* Mobile: Statt weißem Logo-SVG → dunkles Logo per Filter weiß machen */
+@media (max-width: 768px) {
+    .login-logo-animated .logo-white  { display: none; }
+    .login-logo-animated .logo-dark {
+        display: block;
+        animation: logoFarbwechsel 2s forwards ease-in-out;
+    }
+}
+
+
+/* ==========================================================================
+   VOLLBILD WRAPPER – Container für den gesamten Seiteninhalt
+   ========================================================================== */
+
+/* Füllt den ganzen Bildschirm und verteilt TopBar, Karte und Footer */
+.login-fullscreen {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 100vh;
-    animation: contentFadeIn 1s forwards 1.3s;
     opacity: 0;
+    animation: inhaltEinblenden 0.8s forwards 1.3s;
 }
 
-.opacity-0 {
-    opacity: 0;
-}
 
-.message {
+/* ==========================================================================
+   TOPBAR – Oben rechts mit "Noch kein Konto? Registrieren"
+   ========================================================================== */
+
+.login-topbar {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999999999;
-    color: white;
-    font-size: 16px;
-    background-color: #2a3647c5;
-    padding: 24px;
-    border-radius: 24px;
-    border: 1px solid #D1D1D1;
-    box-shadow: var(--box-shadow-1);
-
-    animation: slideUp 0.5s forwards ease-in-out,
-        fadeOut 0.5s 4s forwards ease-in-out;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 40px 100px 0 0;
 }
 
-@keyframes slideUp {
-    0% {
-        top: 100%;
-    }
-
-    100% {
-        top: 50%;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.btn {
+.login-topbar > div {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    min-width: 145px;
-    height: 54px;
-    padding: 14px;
-    gap: 10px;
-    font-size: 21px;
-    border-radius: 10px;
+    gap: 32px;
 }
 
-.btn-primary {
-    background: var(--primaryColor);
-    border: none;
-    color: var(--white);
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-}
-
-.btn-primary:hover {
-    background-color: var(--secondaryColor);
-}
-
-.btn-secondary {
-    width: auto;
-    background: none;
-    border: 1px solid var(--primaryColor);
-    color: var(--primaryColor);
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-}
-
-.btn-secondary:hover {
-    border: 1px solid var(--secondaryColor);
-    color: var(--secondaryColor);
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-#signupSubmitBtn {
-    width: fit-content;
-}
-
-@keyframes logoAnimation {
-    0% {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 274px;
-        height: 334.07px;
-    }
-
-    100% {
-        position: fixed;
-        top: 40px;
-        left: 100px;
-        transform: none;
-        width: 100px;
-        height: 122px;
-    }
-}
-
-.logo-animated {
-    animation: logoAnimation 2s forwards;
-}
-
-@keyframes contentFadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.divider {
-    margin-top: -18px;
-    width: 140px;
-    height: 3px;
-    background: var(--secondaryColor);
-}
-
-.input-icon {
-    position: relative;
-    display: inline-block;
-    width: 422px;
-}
-
-.field {
-    width: 422px;
-    height: 48px;
-    padding: 12px 40px 12px 21px;
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    background: #FFF;
-    box-sizing: border-box;
+.login-topbar span {
     font-size: 20px;
+    color: var(--primaryColor);
 }
 
-.field::placeholder {
-    color: #D1D1D1;
+
+/* ==========================================================================
+   login-card – Die weiße Karte in der Mitte
+   ========================================================================== */
+
+.login-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
 }
 
-.card {
+.login-card {
     padding: 48px 115px;
+    background: var(--white);
     border-radius: 30px;
-    background: #FFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-    z-index: 1;
 }
 
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-}
-
-.custom-h2 {
+.login-card h2 {
     margin: 0;
-    color: #000;
+    color: var(--primaryColor);
     text-align: center;
-    font-size: 61px;
-    font-style: normal;
+    font-size: 4rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
 }
 
-.signup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Blauer Trennstrich unter der Überschrift */
+.login-divider {
+    display: block;
+    width: 154px;
+    height: 4px;
+    background-color: var(--secondaryColor);
+    border-radius: 2px;
+    margin: 4px auto 32px auto;
+}
+
+
+/* ==========================================================================
+   ZURÜCK-PFEIL
+   ========================================================================== */
+
+.login-headline-section {
     position: relative;
-    gap: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-.nav-icon {
-    position: absolute;
-    left: -32px;
-    top: 21px;
-}
-
-.nav-icon:hover {
+.login-back-arrow {
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+    transition: transform 0.15s;
+    position: absolute;
+    left: -36px;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+.login-back-arrow:hover {
+    transform: translateY(-50%) translateX(-4px);
+}
+
+
+/* ==========================================================================
+   FORMULARE – Eingabefelder, Optionen, Buttons
+   ========================================================================== */
 
 .login-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    gap: 24px;
+    margin-bottom: 24px;
 }
 
-.icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-.options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    height: 24px;
-}
-
-.options a {
-    text-decoration: none;
-    color: #29ABE2;
-    cursor: pointer;
-}
-
-.options a:hover {
-    font-weight: 500;
-    border-bottom: 1px solid #29ABE2;
-    padding-bottom: 2px;
-}
-
-.form-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-}
-
-.footer-menu ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 40px;
-    padding: 0;
-}
-
-.footer-menu li {
-    list-style-type: none;
-}
-
-.footer-menu a {
-    text-decoration: none;
-    color: var(--gray-light-4);
-}
-
-.footer-menu a:hover {
-    color: var(--secondaryColor);
-}
-
-.check-policy label {
-    color: var(--gray-light-4);
-    font-weight: 200;
-}
-
-.check-policy a {
-    color: #29ABE2;
-    text-decoration: none;
-}
-
-.check-policy {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
+.input-container {
+    position: relative;
     width: 100%;
 }
 
-.check {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+.input-field-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
 }
 
-.signup-btn {
-    margin-right: 100px;
+.login-buttons {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 32px;
+}
+
+.login-datenschutz-zeile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    justify-content: center;
+}
+
+.login-datenschutz-zeile a {
+    color: var(--secondaryColor);
+    text-decoration: none;
+}
+
+.login-datenschutz-zeile a:hover {
+    text-decoration: underline;
+}
+
+.login-text-klein {
+    font-size: 20px;
+    color: var(--light-gray-4);
+    text-align: center;
+    margin-bottom: 24px;
+    max-width: 322px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   FOOTER – Datenschutz & Impressum Links
+   ========================================================================== */
+
+.login-footer {
+    width: 100%;
+    padding: 0 0 40px 0;
+}
+
+.login-footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.login-footer a {
+    color: var(--light-gray-4);
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.login-footer a:hover {
+    color: var(--primaryColor);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE – Tablet (max. 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .login-card {
+        padding: 48px 80px;
+    }
+    .login-topbar {
+        padding-right: 60px;
+    }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE – Mobil (max. 880px)
+   ========================================================================== */
+
+@media (max-width: 880px) {
+    .login-fullscreen {
+        justify-content: flex-start;
+    }
+
+    .login-topbar {
+        order: 2;
+        justify-content: center;
+        padding: 16px 0 0 0;
+    }
+
+    .login-content {
+        order: 1;
+        margin-top: 188px;
+        padding: 0;
+    }
+
+    .login-footer {
+        order: 3;
+        padding: 16px 0;
+    }
+
+    .login-topbar > div {
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .login-topbar span {
+        font-size: 20px;
+        color: var(--primaryColor);
+    }
+
+    .login-card {
+        border-radius: 30px;
+        padding: 32px 0;
+    }
+
+    .login-card h2 {
+        font-size: 37px;
+    }
+
+    /* Pfeil innerhalb der Karte (kein negatives left), Überschrift zentriert */
+    .login-back-arrow {
+        left: 16px;
+        top: 8px;
+        transform: none;
+    }
+
+    .login-headline-section {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .login-form {
+        padding: 0 16px;
+    }
+
+    .login-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .login-buttons .btn {
+        width: 180px !important;
+    }
+
+
+}
+
+
+/* ==========================================================================
+   RESPONSIVE – Kleines Mobil (max. 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .login-fullscreen {
+        margin: 0 16px;
+    }
+
+    .login-card,
+    .login-form,
+    .input-container {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE – Sehr kleines Mobil (max. 320px)
+   ========================================================================== */
+
+@media (max-width: 320px) {
+    .login-card h2 {
+        font-size: 28px;
+    }
+
+    .login-buttons .btn {
+        width: 140px !important;
+        font-size: 16px !important;
+    }
 }
