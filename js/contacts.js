@@ -2,10 +2,11 @@ const dialogElement = document.querySelector("dialog");
 const dialog = document.getElementById("add-contact-dialog");
 const contactListContainer = document.getElementById("contacts-list-import");
 const contactDetailsContainer = document.getElementById("contact-details-view");
+const URL = '/db.json';
 let loadedContacts = [];
 
 async function init() {
-    await loadAndPrepareContacts(); 
+    await loadAndPrepareContacts();
     renderContacts();
 }
 
@@ -20,9 +21,9 @@ function getRandomColor() {
 
 async function loadAndPrepareContacts() {
     try {
-        const response = await fetch('/db.json');
+        const response = await fetch(URL);
         const data = await response.json();
-        
+
         addContactsToLoaded(data.contacts);
     } catch (error) {
         console.error("Fehler beim Laden:", error);
@@ -32,7 +33,7 @@ async function loadAndPrepareContacts() {
 function addContactsToLoaded(contactsFromDB) {
     Object.keys(contactsFromDB).forEach(id => {
         const alreadyExists = loadedContacts.some(c => c.id === id);
-        
+
         if (!alreadyExists) {
             loadedContacts.push({
                 id: id,
@@ -48,12 +49,12 @@ function addContactsToLoaded(contactsFromDB) {
 
 function getInitials(name) {
     if (!name) return 'no Name';
-    
-    const nameParts = name.split(' '); 
-    
+
+    const nameParts = name.split(' ');
+
     const firstNameChar = nameParts[0].charAt(0).toUpperCase();
     const lastNameChar = nameParts[1].charAt(0).toUpperCase();
-    
+
     return firstNameChar + lastNameChar;
 }
 
@@ -79,7 +80,7 @@ function renderContacts() {
 
     let groupedData = groupContactsByLetter();
     let html = Object.entries(groupedData).map(renderLetterGroup).join('');
-    
+
     contactListContainer.innerHTML = html;
 }
 
@@ -101,14 +102,15 @@ function showContactDetails(contactId) {
 
 
     const contact = loadedContacts.find(c => c.id === contactId);
-        contactDetailsContainer.innerHTML = renderContactDetails(contact);
+    contactDetailsContainer.innerHTML = renderContactDetails(contact);
 }
 
 function editContact(id) {
     if (!dialog) return;
-    
+
     const contact = loadedContacts.find(c => c.id === id);
     if (contact) {
+        dialog.innerHTML = renderDialogContact('edit', contact);
         fillEditForm(contact);
         openDialog();
     }
@@ -127,13 +129,12 @@ function fillEditForm(contact) {
 function openAddContactModal() {
     if (!dialog) return;
 
-    const form = dialog.querySelector('form');
-    if (form) form.reset();
+    dialog.innerHTML = renderDialogContact('add');
 
     const avatarBox = dialog.querySelector('.profile-placeholder');
     if (avatarBox) {
         avatarBox.style.backgroundColor = '';
-        avatarBox.innerHTML = '<i class="fa-solid fa-user"></i>'; 
+        avatarBox.innerHTML = '<i class="fa-solid fa-user"></i>';
     }
     openDialog();
 }
