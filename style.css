@@ -1,7 +1,7 @@
 @import url(./assets/css/fonts.css);
 @import url(./assets/css/color.css);
 @import url(./assets/css/login.css);
-@import url(./assets/css/responsiv.css);
+/* @import url(./assets/css/responsiv.css); */
 
 *,
 *::before,
@@ -58,12 +58,14 @@ body {
     cursor: pointer;
     transition: all 0.15s ease-in-out;
     white-space: nowrap;
+    width: fit-content;
 }
 
 .btn-primary {
     background: var(--primaryColor);
     border: none;
     color: var(--white);
+    width: fit-content;
 }
 
 .btn-primary:hover {
@@ -127,7 +129,6 @@ button:disabled {
 }
 
 .input-field {
-    width: 422px;
     height: 50px;
     padding: 12px 42px 12px 21px;
     border-radius: 10px;

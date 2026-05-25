@@ -1,7 +1,10 @@
 @keyframes backgroundMobileAnimation {
-    0%, 65% {
+
+    0%,
+    65% {
         background-color: var(--primaryColor);
     }
+
     100% {
         background-color: var(--background);
     }
@@ -13,7 +16,7 @@
     animation: backgroundMobileAnimation 2s forwards ease-in-out;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 426px) {
     .login-page {
         background-color: var(--background);
         animation: none;
@@ -36,24 +39,40 @@
 }
 
 @keyframes logoColorChange {
-    0%, 65% { filter: brightness(0) invert(1); }
-    100%     { filter: none; }
+
+    0%,
+    65% {
+        filter: brightness(0) invert(1);
+    }
+
+    100% {
+        filter: none;
+    }
 }
 
 .login-logo-animated .logo-dark {
     display: none;
 }
+
 .login-logo-animated .logo-white {
     display: block;
 }
 
-@media (min-width: 769px) {
-    .login-logo-animated .logo-dark { display: block; }
-    .login-logo-animated .logo-white  { display: none; }
+@media (min-width: 426px) {
+    .login-logo-animated .logo-dark {
+        display: block;
+    }
+
+    .login-logo-animated .logo-white {
+        display: none;
+    }
 }
 
-@media (max-width: 768px) {
-    .login-logo-animated .logo-white  { display: none; }
+@media (max-width: 425px) {
+    .login-logo-animated .logo-white {
+        display: none;
+    }
+
     .login-logo-animated .logo-dark {
         display: block;
         animation: logoColorChange 2s forwards ease-in-out;
@@ -78,7 +97,7 @@
     padding: 40px 100px 0 0;
 }
 
-.login-topbar > div {
+.login-topbar>div {
     display: flex;
     align-items: center;
     gap: 32px;
@@ -115,7 +134,7 @@
 .login-divider {
     display: block;
     width: 154px;
-    height: 4px;
+    height: 3px;
     background-color: var(--secondaryColor);
     border-radius: 2px;
     margin: 4px auto 32px auto;
@@ -148,6 +167,10 @@
     flex-direction: column;
     gap: 24px;
     margin-bottom: 24px;
+}
+
+.input-field {
+    width: 422px;
 }
 
 .input-container {
@@ -228,14 +251,26 @@
     .login-card {
         padding: 48px 80px;
     }
+
     .login-topbar {
         padding-right: 60px;
     }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 768px) {
+    .login-fullscreen {
+        margin: 0 16px;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px) {
     .login-fullscreen {
         justify-content: flex-start;
+        margin: 0 16px;
     }
 
     .login-topbar {
@@ -255,7 +290,7 @@
         padding: 16px 0;
     }
 
-    .login-topbar > div {
+    .login-topbar>div {
         flex-direction: row;
         gap: 16px;
         align-items: center;
@@ -299,28 +334,65 @@
         width: 180px !important;
     }
 
+    .input-field {
+        width: 100%;
+    }
 
+    .login-divider {
+        width: 80px;
+    }
+
+    .login-card {
+        width: 100%;
+    }
+
+    .login-logo-animated .logo-dark {
+        margin-left: -40px;
+        height: 100px;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
     .login-fullscreen {
         margin: 0 16px;
     }
 
-    .login-card,
-    .login-form,
-    .input-container {
+    .login-divider {
+        width: 80px;
+    }
+
+    .login-card {
         width: 100%;
     }
 }
 
 @media (max-width: 320px) {
+    .login-form {
+        align-items: center;
+        width: 280px;
+        gap: 16px;
+    }
+
     .login-card h2 {
         font-size: 28px;
+    }
+
+    .login-divider {
+        width: 60px;
     }
 
     .login-buttons .btn {
         width: 140px !important;
         font-size: 16px !important;
+    }
+
+    .login-logo-animated .logo-dark {
+        margin-left: -40px;
+        height: 80px;
+    }
+
+    .login-topbar span {
+        font-size: 16px;
+
     }
 }
