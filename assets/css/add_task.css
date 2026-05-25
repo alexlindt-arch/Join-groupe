@@ -106,6 +106,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+#task-due {
+  background-image: none;
+}
+
 /* Prio buttons */
 .prio-buttons {
   display: flex;
@@ -342,4 +346,205 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 21px;
     font-weight: 700;
   }
+}
+
+/* ── Custom dropdowns (Assigned to / Category) ── */
+.custom-select {
+  position: relative;
+}
+
+.select-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.select-placeholder {
+  color: #D1D1D1;
+}
+
+.select-caret {
+  color: var(--primaryColor);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.select-options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.select-option,
+.assign-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.select-option:hover,
+.assign-option:hover {
+  background: #f6f7f8;
+}
+
+.assign-option--active {
+  background: var(--primaryColor);
+  color: #ffffff;
+}
+
+.assign-option-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.assign-checkbox {
+  font-weight: 700;
+}
+
+.avatar-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ffffff;
+  flex-shrink: 0;
+}
+
+.assigned-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+/* ── Field validation ── */
+.field-error {
+  color: #FF8190;
+  font-size: 13px;
+}
+
+/* ── Subtasks ── */
+.subtask-input-wrapper {
+  position: relative;
+}
+
+.subtask-input-wrapper .form-input {
+  width: 100%;
+  padding-right: 84px;
+}
+
+.subtask-actions {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.subtask-edit-actions {
+  display: flex;
+  align-items: center;
+}
+
+.subtask-icon-btn {
+  border: unset;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--primaryColor);
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: background 0.1s;
+}
+
+.subtask-icon-btn:hover {
+  background: #eef0f2;
+}
+
+.subtask-action-divider {
+  width: 1px;
+  height: 18px;
+  background: #D1D1D1;
+}
+
+.subtask-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--primaryColor);
+}
+
+.subtask-item:hover {
+  background: #f6f7f8;
+}
+
+.subtask-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtask-item-actions {
+  display: none;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.subtask-item:hover .subtask-item-actions {
+  display: flex;
+}
+
+.subtask-item--editing {
+  background: #ffffff;
+  border-bottom: 1px solid var(--secondaryColor);
+  border-radius: 0;
+  padding: 4px 0 4px 12px;
+}
+
+.subtask-item--editing .subtask-item-actions {
+  display: flex;
+}
+
+.subtask-edit-input {
+  flex: 1;
+  border: unset;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: var(--primaryColor);
+  background: transparent;
 }

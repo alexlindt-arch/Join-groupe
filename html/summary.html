@@ -59,7 +59,7 @@
                 <a href="help.html" class="help-link">
                     <img src="../assets/icons/help.svg" alt="Help" class="help-icon">
                 </a>
-                <div class="user-avatar">SM</div>
+                <div class="user-avatar" id="user-avatar">SM</div>
             </div>
         </header>
 
@@ -80,7 +80,7 @@
                                 <img src="../assets/icons/edit.svg" alt="" class="stat-icon">
                             </div>
                             <div class="stat-info">
-                                <span class="stat-number">2</span>
+                                <span class="stat-number" id="stat-todo">0</span>
                                 <span class="stat-label">To-do</span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <img src="../assets/icons/done.svg" alt="" class="stat-icon">
                             </div>
                             <div class="stat-info">
-                                <span class="stat-number">1</span>
+                                <span class="stat-number" id="stat-done">0</span>
                                 <span class="stat-label">Done</span>
                             </div>
                         </div>
@@ -104,28 +104,28 @@
                                 </svg>
                             </div>
                             <div class="urgency-info">
-                                <span class="urgency-number">1</span>
+                                <span class="urgency-number" id="stat-urgent">0</span>
                                 <span class="urgency-count-label">Urgent</span>
                             </div>
                         </div>
                         <div class="urgency-divider-vertical"></div>
                         <div class="urgency-right">
-                            <span class="urgency-date">September 16, 2024</span>
+                            <span class="urgency-date" id="stat-deadline">No upcoming deadline</span>
                             <span class="urgency-date-label">Upcoming Deadline</span>
                         </div>
                     </div>
 
                     <div class="cards-row-sm">
                         <div class="stat-card-sm">
-                            <span class="stat-number">5</span>
+                            <span class="stat-number" id="stat-total">0</span>
                             <span class="stat-label">Tasks in Board</span>
                         </div>
                         <div class="stat-card-sm">
-                            <span class="stat-number">2</span>
+                            <span class="stat-number" id="stat-progress">0</span>
                             <span class="stat-label">Tasks In Progress</span>
                         </div>
                         <div class="stat-card-sm">
-                            <span class="stat-number">2</span>
+                            <span class="stat-number" id="stat-feedback">0</span>
                             <span class="stat-label">Awaiting Feedback</span>
                         </div>
                     </div>
@@ -135,8 +135,8 @@
 
             <div class="summary-right">
                 <div class="greeting">
-                    <span class="greeting-time">Good morning,</span>
-                    <span class="greeting-name">Sofia Müller</span>
+                    <span class="greeting-time" id="greeting-time">Good morning,</span>
+                    <span class="greeting-name" id="greeting-name">Guest</span>
                 </div>
             </div>
 
@@ -144,5 +144,6 @@
     </div>
 
     <script src="../script.js"></script>
+    <script src="../js/summary.js"></script>
 </body>
 </html>

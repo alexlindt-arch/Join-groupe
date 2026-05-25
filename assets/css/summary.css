@@ -430,3 +430,18 @@
     line-height: 1.2;
   }
 }
+
+/* Fit the whole dashboard into shorter viewports so the bottom row stays visible */
+@media (min-width: 769px) and (max-height: 900px) {
+  .summary-main {
+    padding-top: 40px;
+  }
+
+  .summary-heading {
+    margin-bottom: 20px;
+  }
+
+  .summary-cards {
+    gap: 16px;
+  }
+}
