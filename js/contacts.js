@@ -188,6 +188,39 @@ async function saveContactToDB(newContact) {
     } catch (e) { console.error(e); }
 }
 
+async function updateContact(event, id) {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.querySelector('input[type="text"]').value.trim();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const phone = form.querySelector('input[type="tel"]').value.trim();
+
+    const contact = loadedContacts.find(c => c.id === id);
+    if (!contact) return;
+
+    const updatedContact = {
+        id: contact.id,
+        name,
+        email,
+        phone: phone || 'no phone number provided',
+        color: contact.color,
+        avatar: getInitials(name)
+    };
+
+    try {
+        await fetch(`${URL.replace('.json', '')}/${id}.json`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedContact)
+        });
+        dialog.close();
+        await init();
+        showContactDetails(String(id));
+    } catch (e) {
+        console.error('Update error:', e);
+    }
+}
+
 async function deleteContact(id) {
     if (!id) return;
     try {
