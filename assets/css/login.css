@@ -134,10 +134,10 @@
 .login-divider {
     display: block;
     width: 154px;
-    height: 3px;
+    height: 4px;
     background-color: var(--secondaryColor);
     border-radius: 2px;
-    margin: 4px auto 32px auto;
+    margin: 18px auto 32px auto;
 }
 
 .login-headline-section {
