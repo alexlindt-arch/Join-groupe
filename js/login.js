@@ -122,3 +122,9 @@ async function register() {
     const { newUser, newContact } = buildNewUserAndContact(newId, name, email, password);
     await saveRegistration(newId, newUser, newContact);
 }
+
+function userLogout() {
+    sessionStorage.removeItem('currentUser');
+    const pathLocation = window.location.pathname.includes('/html/');
+    window.location.href = pathLocation ? "../index.html" : "./index.html";
+}
