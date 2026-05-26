@@ -58,6 +58,15 @@ function selectCategory(value) {
     label.classList.remove('select-placeholder');
     closeCategoryDropdown();
     hideError('error-category');
+    updateCreateButton();
+}
+
+
+function updateCreateButton() {
+    const title = document.getElementById('task-title').value.trim();
+    const due = document.getElementById('task-due').value;
+    const btn = document.getElementById('btn-create');
+    btn.disabled = !(title && due && selectedCategory);
 }
 
 
@@ -275,6 +284,7 @@ function clearTaskForm() {
     updateSubtaskActions();
     setPriority(document.querySelector('.prio-medium'));
     ['error-title', 'error-due', 'error-category'].forEach(hideError);
+    document.getElementById('btn-create').disabled = true;
 }
 
 

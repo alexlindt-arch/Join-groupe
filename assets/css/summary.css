@@ -271,6 +271,21 @@
   gap: 3px;
 }
 
+@media (min-width: 769px) {
+  .greeting {
+    position: fixed;
+    top: 547.5px;
+    left: 968px;
+    width: 385px;
+    height: 136px;
+  }
+
+  .greeting-name {
+    white-space: nowrap;
+    font-size: 40px;
+  }
+}
+
 .greeting-time {
   font-size: 47px;
   font-weight: 500;
