@@ -59,7 +59,12 @@
                 <a href="help.html" class="help-link">
                     <img src="../assets/icons/help.svg" alt="Help" class="help-icon">
                 </a>
-                <div class="user-avatar" id="user-avatar">SM</div>
+                <div class="avatar-wrapper" id="user-avatar-wrapper" onclick="toggleAvatarMenu()">
+                    <div class="user-avatar" id="user-avatar"></div>
+                    <div class="avatar-dropdown d-none" id="avatar-menu">
+                        <button class="avatar-menu-btn" onclick="logout(); event.stopPropagation()">Log out</button>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -103,8 +108,8 @@
                                 <button type="button" class="prio-btn prio-urgent" data-prio="urgent" onclick="setPriority(this)">
                                     Urgent
                                     <svg width="20" height="15" viewBox="0 0 20 14.51" fill="none">
-                                        <path d="M0 8.76 L10 0 L20 8.76 L17.5 8.76 L10 2.5 L2.5 8.76 Z" fill="#FF3D00"/>
-                                        <path d="M0 14.51 L10 5.75 L20 14.51 L17.5 14.51 L10 8.25 L2.5 14.51 Z" fill="#FF3D00"/>
+                                        <path d="M0 8.76 L10 0 L20 8.76 L17.5 8.76 L10 2.5 L2.5 8.76 Z"/>
+                                        <path d="M0 14.51 L10 5.75 L20 14.51 L17.5 14.51 L10 8.25 L2.5 14.51 Z"/>
                                     </svg>
                                 </button>
                                 <button type="button" class="prio-btn prio-medium prio-active" data-prio="medium" onclick="setPriority(this)">
@@ -117,8 +122,8 @@
                                 <button type="button" class="prio-btn prio-low" data-prio="low" onclick="setPriority(this)">
                                     Low
                                     <svg width="20" height="15" viewBox="0 0 20 14.51" fill="none">
-                                        <path d="M0 0 L10 8.76 L20 0 L17.5 0 L10 6.26 L2.5 0 Z" fill="#7AE229"/>
-                                        <path d="M0 5.75 L10 14.51 L20 5.75 L17.5 5.75 L10 12.01 L2.5 5.75 Z" fill="#7AE229"/>
+                                        <path d="M0 0 L10 8.76 L20 0 L17.5 0 L10 6.26 L2.5 0 Z"/>
+                                        <path d="M0 5.75 L10 14.51 L20 5.75 L17.5 5.75 L10 12.01 L2.5 5.75 Z"/>
                                     </svg>
                                 </button>
                             </div>
@@ -157,8 +162,6 @@
                                 <input class="form-input" type="text" id="task-subtask" placeholder="Add new subtask"
                                     oninput="updateSubtaskActions()" onkeydown="handleSubtaskKey(event)">
                                 <div class="subtask-actions">
-                                    <button type="button" class="subtask-icon-btn" id="subtask-add-default"
-                                        title="Add subtask" onclick="addSubtask()">+</button>
                                     <span class="subtask-edit-actions d-none" id="subtask-edit-actions">
                                         <button type="button" class="subtask-icon-btn" title="Clear"
                                             onclick="clearSubtaskInput()">&#10005;</button>

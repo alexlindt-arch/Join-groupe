@@ -153,6 +153,10 @@ body.app-page {
   height: 24px;
 }
 
+.avatar-wrapper {
+  position: relative;
+}
+
 .user-avatar {
   width: 48px;
   height: 48px;
@@ -166,6 +170,37 @@ body.app-page {
   font-weight: 500;
   color: #000000;
   cursor: pointer;
+  user-select: none;
+}
+
+.avatar-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  z-index: 300;
+  overflow: hidden;
+}
+
+.avatar-menu-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #2A3647;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.avatar-menu-btn:hover {
+  background: #f6f7f8;
 }
 
 /* ── Tablet: Icon-only Sidebar ── */

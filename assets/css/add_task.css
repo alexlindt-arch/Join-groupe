@@ -144,14 +144,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* SVG icon colors – inactive */
+.prio-urgent svg path { fill: #FF3D00; }
+.prio-medium svg rect { fill: #FFA800; }
+.prio-low svg path    { fill: #7AE229; }
+
+/* Active button backgrounds */
 .prio-urgent.prio-active {
   background: #FF3D00;
   color: #ffffff;
   box-shadow: none;
-}
-
-.prio-urgent.prio-active svg path {
-  fill: #ffffff;
 }
 
 .prio-medium.prio-active {
@@ -176,9 +178,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: none;
 }
 
-.prio-low.prio-active svg path {
-  fill: #ffffff;
-}
+/* SVG icon colors – active (white on colored background) */
+.prio-urgent.prio-active svg path { fill: #ffffff; }
+.prio-medium.prio-active svg rect { fill: #ffffff; }
+.prio-low.prio-active svg path    { fill: #ffffff; }
 
 /* Form footer */
 .form-footer {

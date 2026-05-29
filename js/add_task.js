@@ -37,6 +37,18 @@ function setPriority(button) {
 
 
 /**
+ * Enables the Create Task button only when all required fields are filled.
+ * @returns {void}
+ */
+function checkFormValidity() {
+    const title    = document.getElementById('task-title').value.trim();
+    const due      = document.getElementById('task-due').value;
+    const btn      = document.getElementById('btn-create');
+    btn.disabled   = !(title && due && selectedCategory);
+}
+
+
+/**
  * Opens or closes the category dropdown.
  * @returns {void}
  */

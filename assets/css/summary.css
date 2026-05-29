@@ -20,6 +20,7 @@
 /* ──────────────── Heading ──────────────── */
 .summary-heading {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 30px;
   margin-bottom: 56px;
@@ -43,6 +44,7 @@
   font-size: 27px;
   font-weight: 400;
   color: #2A3647;
+  line-height: 1.2;
 }
 
 /* ──────────────── Cards container ──────────────── */
@@ -124,6 +126,7 @@
   font-size: 20px;
   font-weight: 400;
   color: #2A3647;
+  line-height: 1.2;
 }
 
 /* ──────────────── Urgency card (560×168) ──────────────── */
@@ -193,6 +196,7 @@
   font-size: 16px;
   font-weight: 400;
   color: #2A3647;
+  line-height: 1.2;
 }
 
 .urgency-divider-vertical {
@@ -212,12 +216,14 @@
   font-size: 21px;
   font-weight: 700;
   color: #2A3647;
+  line-height: 1.2;
 }
 
 .urgency-date-label {
   font-size: 16px;
   font-weight: 400;
   color: #2A3647;
+  line-height: 1.2;
 }
 
 /* ──────────────── Small stat card (168×168) ──────────────── */

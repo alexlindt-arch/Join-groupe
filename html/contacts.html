@@ -63,7 +63,12 @@
                 <a href="help.html" class="help-link">
                     <img src="../assets/icons/help.svg" alt="Help" class="help-icon">
                 </a>
-                <div class="user-avatar">SM</div>
+                <div class="avatar-wrapper" id="user-avatar-wrapper" onclick="toggleAvatarMenu()">
+                    <div class="user-avatar" id="user-avatar"></div>
+                    <div class="avatar-dropdown d-none" id="avatar-menu">
+                        <button class="avatar-menu-btn" onclick="logout(); event.stopPropagation()">Log out</button>
+                    </div>
+                </div>
             </div>
         </header>
 
