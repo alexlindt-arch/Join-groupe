@@ -177,30 +177,41 @@ body.app-page {
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  width: 150px;
+  background: #2A3647;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px 0px 20px 20px;
   z-index: 300;
-  overflow: hidden;
 }
 
 .avatar-menu-btn {
-  display: block;
-  width: 100%;
-  padding: 14px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 130px;
+  height: 46px;
+  padding: 8px 16px;
   border: none;
+  border-radius: 8px;
   background: none;
   cursor: pointer;
-  font-size: 16px;
   font-family: 'Inter', sans-serif;
-  color: #2A3647;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #CDCDCD;
   text-align: left;
   transition: background 0.1s;
 }
 
 .avatar-menu-btn:hover {
-  background: #f6f7f8;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 /* ── Tablet: Icon-only Sidebar ── */
