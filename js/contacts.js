@@ -6,10 +6,11 @@ const CONTACTS_URL = 'https://remotestorage-c0469-default-rtdb.europe-west1.fire
 let loadedContacts = [];
 
 async function init() {
-    loadedContacts = []; 
+    initMain();
+    loadedContacts = [];
     await loadAndPrepareContacts();
     renderContacts();
-    getCurrentUser();
+
 }
 
 async function loadAndPrepareContacts() {
@@ -39,7 +40,7 @@ function addContactsToLoaded(contactsFromDB) {
                 name: contact.name,
                 email: contact.email,
                 phone: contact.phone || 'no phone number provided',
-                color: contact.color || getRandomColor(), 
+                color: contact.color || getRandomColor(),
                 avatar: contact.avatar || getInitials(contact.name)
             });
         }
@@ -154,7 +155,7 @@ async function saveContactToDB(newContact) {
     const nextIndex = maxId + 1;
 
     newContact.id = nextIndex;
-    newContact.avatar = getInitials(newContact.name); 
+    newContact.avatar = getInitials(newContact.name);
     newContact.color = getRandomColor();
 
     try {
@@ -164,7 +165,7 @@ async function saveContactToDB(newContact) {
             body: JSON.stringify(newContact)
         });
         dialog.close();
-        await loadAndPrepareContacts(); 
+        await loadAndPrepareContacts();
         renderContacts();
     } catch (e) { console.error(e); }
 }
@@ -212,7 +213,7 @@ async function deleteContact(id) {
         // Schließt das Modal NUR, wenn es im Browser auch wirklich gerade offen ist
         if (dialog && dialog.open) dialog.close();
         if (contactDetailsContainer) contactDetailsContainer.innerHTML = '';
-        
-        await init(); 
+
+        await init();
     } catch (error) { console.error("Fehler beim Löschen:", error); }
 }

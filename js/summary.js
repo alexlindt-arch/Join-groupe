@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', initSummary);
  * @returns {Promise<void>}
  */
 async function initSummary() {
+    initMain();
     renderGreeting();
     const tasks = await loadTasks();
     renderStats(tasks);
