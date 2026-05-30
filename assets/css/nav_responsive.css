@@ -4,61 +4,73 @@
     }
 
     .header {
-        padding-left: 250px; /* 200px Sidebar + 50px Abstand */
+        padding-left: 250px;
     }
 }
 
 @media (max-width: 768px) {
-
-    /* --- Header --- */
     .header {
-        padding-left: 20px; /* Sidebar ausgeblendet, normales Padding */
+        padding-left: 20px;
     }
 
     .header-titel {
-        display: none;  /* Titel verstecken auf Mobile */
+        display: none;
     }
 
-    /* Mobiles Logo im Header (die korrekte CSS-Klasse) */
     .header-logo-mobil {
         display: block;
     }
 
-    /* --- Sidebar verstecken --- */
     .sidebar {
         display: none;
     }
 
-     .mobil-navigation {
+    .mobil-navigation {
         display: flex;
     }
 }
 
 @media (max-width: 480px) {
 
-    h1 { font-size: 36px; }
-    h2 { font-size: 28px; }
-    h3 { font-size: 22px; }
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
 
     .header {
         padding: 0 20 0 0;
     }
 }
 
-/* ==========================================================================
-   SEHR KLEIN (< 320px) – Minimum-Unterstützung
-   ========================================================================== */
 @media (max-width: 320px) {
-
-    body {
-        min-width: 320px;  /* Keine horizontale Scrollbar unterhalb 320px */
+    .header-account {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-right: 24px;
     }
 
-    h1 { font-size: 28px; }
-    h2 { font-size: 22px; }
+    body {
+        min-width: 320px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
 
     .header {
-        padding: 0 12px;
+        padding: 0 0 0 12;
         height: 64px;
     }
 
