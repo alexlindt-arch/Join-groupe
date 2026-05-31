@@ -79,8 +79,9 @@
     }
 
     .mobil-nav-link {
-        font-size: 10px;
+        font-size: 12px;
         padding: 4px 6px;
+        height: 54px;
     }
 
     .mobil-nav-link img {
