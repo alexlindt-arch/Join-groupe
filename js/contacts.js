@@ -211,7 +211,6 @@ async function deleteContact(id) {
             method: 'DELETE'
         });
 
-        // Schließt das Modal NUR, wenn es im Browser auch wirklich gerade offen ist
         if (dialog && dialog.open) dialog.close();
         if (contactDetailsContainer) contactDetailsContainer.innerHTML = '';
 
