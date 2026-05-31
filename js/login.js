@@ -89,8 +89,16 @@ function validateRegistrationForm() {
     const pwConfirm = document.getElementById('reg_password_confirm').value;
     const privacy = document.getElementById('reg_datenschutz').checked;
     updatePasswordHint(document.getElementById('pw_match_hint'), pw, pwConfirm);
-    const isValid = name && email && pw && pw === pwConfirm && privacy;
+    const emailValid = validateEmailFormat(email);
+    const isValid = name && email && emailValid && pw && pw === pwConfirm && privacy;
     document.getElementById('reg_submit_btn').disabled = !isValid;
+    const emailInput = document.getElementById('reg_email');
+    emailInput.setCustomValidity(email && !emailValid ? 'Please enter a valid email address (e.g. name@domain.de)' : '');
+    if (email && !emailValid) emailInput.reportValidity();
+}
+
+function validateEmailFormat(email) {
+    return /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email);
 }
 
 async function getNextUserId(email) {
@@ -122,6 +130,10 @@ async function register() {
     const name = document.getElementById('reg_name').value.trim();
     const email = document.getElementById('reg_email').value.trim();
     const password = document.getElementById('reg_passwort').value;
+    if (!validateEmailFormat(email)) {
+        showNotification('Please enter a valid email address (e.g. name@domain.de)', true);
+        return;
+    }
     const newId = await getNextUserId(email);
     if (!newId) { showNotification('This email address is already registered.', true); return; }
     const { newUser, newContact } = buildNewUserAndContact(newId, name, email, password);

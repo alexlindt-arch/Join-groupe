@@ -116,7 +116,7 @@ async function loadNavigation() {
     setActiveNavLink();
 }
 
-const protectedPages = ['summary.html', 'add_task.html', 'board.html', 'contacts.html'];
+const protectedPages = ['summary.html', 'add_task.html', 'board.html', 'contacts.html', 'help.html'];
 const currentPage = window.location.pathname.split('/').pop();
 if (protectedPages.includes(currentPage)) {
     const user = sessionStorage.getItem('currentUser');
