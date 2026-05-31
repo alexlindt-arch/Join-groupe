@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +13,43 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../assets/css/shared.css">
     <link rel="stylesheet" href="../assets/css/add_task.css">
+    <link rel="stylesheet" href="../assets/css/nav_template.css">
+    <link rel="stylesheet" href="../assets/css/nav_responsive.css">
+    
     <title>Add Task</title>
 </head>
+
 <body class="app-page">
-    <div class="landscape-warning">
-        <img src="../assets/img/logo_white.svg" alt="Join">
-        <p>Bitte drehe dein Gerät in den Hochformat-Modus.</p>
+    <div data-import="../html/nav_template.html"></div>
+
+    <div id="extern_panel" class="extern-panel d-none">
+        <a href="../index.html" class="external-logo-link">
+            <img src="../assets/img/logo_white.svg" alt="Join Logo" class="external-logo">
+        </a>
+        <a href="../index.html" class="extern-login-link">
+            Log In
+            <img src="../assets/icons/arrow-left-line.svg" alt="" class="external-login-arrow">
+        </a>
+        <div class="external-footer">
+            <a href="privacy_policy.html" class="aktiv">Privacy Policy</a>
+            <a href="legal_notice.html">Legal Notice</a>
+        </div>
     </div>
 
-    <aside class="sidebar">
-        <a href="../index.html" class="sidebar-logo-link">
-            <img class="sidebar-logo" src="../assets/img/logo_white.svg" alt="Join">
+    <div id="external_mobile_header" class="external-mobile-header d-none">
+        <img src="../assets/img/logo_big.svg" alt="Join Logo">
+    </div>
+
+    <div id="external_mobile_bar" class="external-mobile-bar d-none">
+        <a href="../index.html" class="external-mobile-login-link">
+            <img src="../assets/icons/arrow-left-line.svg" alt="" class="external-login-arrow">
+            Log In
         </a>
-        <nav class="sidebar-nav">
-            <a href="summary.html" class="nav-item">
-                <img src="../assets/icons/summary.svg" alt="" class="nav-icon">
-                <span>Summary</span>
-            </a>
-            <a href="add_task.html" class="nav-item nav-item--active">
-                <img src="../assets/icons/add_task.svg" alt="" class="nav-icon">
-                <span>Add Task</span>
-            </a>
-            <a href="board.html" class="nav-item">
-                <img src="../assets/icons/board.svg" alt="" class="nav-icon">
-                <span>Board</span>
-            </a>
-            <a href="contacts.html" class="nav-item">
-                <img src="../assets/icons/contacts.svg" alt="" class="nav-icon">
-                <span>Contacts</span>
-            </a>
-        </nav>
-        <footer class="sidebar-footer">
-            <a href="privacy_policy.html" class="sidebar-footer-link">Privacy Policy</a>
-            <a href="legal_notice.html" class="sidebar-footer-link">Legal Notice</a>
-        </footer>
-    </aside>
+        <div class="external-mobile-links">
+            <a href="privacy_policy.html" class="aktiv">Privacy Policy</a>
+            <a href="legal_notice.html">Legal Notice</a>
+        </div>
+    </div>
 
     <div class="main-wrapper">
 
@@ -62,9 +65,14 @@
                 <div class="avatar-wrapper" id="user-avatar-wrapper" onclick="toggleAvatarMenu()">
                     <div class="user-avatar" id="user-avatar"></div>
                     <div class="avatar-dropdown d-none" id="avatar-menu">
-                        <button class="avatar-menu-btn" onclick="window.location.href='help.html'; event.stopPropagation()">Help</button>
-                        <button class="avatar-menu-btn" onclick="window.location.href='privacy_policy.html'; event.stopPropagation()">Privacy Policy</button>
-                        <button class="avatar-menu-btn" onclick="window.location.href='legal_notice.html'; event.stopPropagation()">Legal Notice</button>
+                        <button class="avatar-menu-btn"
+                            onclick="window.location.href='help.html'; event.stopPropagation()">Help</button>
+                        <button class="avatar-menu-btn"
+                            onclick="window.location.href='privacy_policy.html'; event.stopPropagation()">Privacy
+                            Policy</button>
+                        <button class="avatar-menu-btn"
+                            onclick="window.location.href='legal_notice.html'; event.stopPropagation()">Legal
+                            Notice</button>
                         <button class="avatar-menu-btn" onclick="logout(); event.stopPropagation()">Log out</button>
                     </div>
                 </div>
@@ -81,20 +89,34 @@
 
                         <div class="form-group">
                             <label class="form-label" for="task-title">Title <span class="required">*</span></label>
-                            <input class="form-input" type="text" id="task-title" placeholder="Enter a title" oninput="updateCreateButton()">
+                            <input class="form-input" type="text" id="task-title" placeholder="Enter a title"
+                                oninput="updateCreateButton()">
                             <span class="field-error d-none" id="error-title">This field is required</span>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="task-desc">Description</label>
-                            <textarea class="form-input form-textarea" id="task-desc" placeholder="Enter a description"></textarea>
+                            <textarea class="form-input form-textarea" id="task-desc"
+                                placeholder="Enter a description"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="task-due">Due date <span class="required">*</span></label>
                             <div class="form-input-icon">
-                                <input class="form-input" type="date" id="task-due" onchange="updateCreateButton()" oninput="updateCreateButton()">
-                                <svg class="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_94_448" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_94_448)"><path d="M14.5 18C13.8 18 13.2083 17.7583 12.725 17.275C12.2417 16.7917 12 16.2 12 15.5C12 14.8 12.2417 14.2083 12.725 13.725C13.2083 13.2417 13.8 13 14.5 13C15.2 13 15.7917 13.2417 16.275 13.725C16.7583 14.2083 17 14.8 17 15.5C17 16.2 16.7583 16.7917 16.275 17.275C15.7917 17.7583 15.2 18 14.5 18ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6C3 5.45 3.19583 4.97917 3.5875 4.5875C3.97917 4.19583 4.45 4 5 4H6V3C6 2.71667 6.09583 2.47917 6.2875 2.2875C6.47917 2.09583 6.71667 2 7 2C7.28333 2 7.52083 2.09583 7.7125 2.2875C7.90417 2.47917 8 2.71667 8 3V4H16V3C16 2.71667 16.0958 2.47917 16.2875 2.2875C16.4792 2.09583 16.7167 2 17 2C17.2833 2 17.5208 2.09583 17.7125 2.2875C17.9042 2.47917 18 2.71667 18 3V4H19C19.55 4 20.0208 4.19583 20.4125 4.5875C20.8042 4.97917 21 5.45 21 6V20C21 20.55 20.8042 21.0208 20.4125 21.4125C20.0208 21.8042 19.55 22 19 22H5ZM5 20H19V10H5V20ZM5 8H19V6H5V8Z" fill="#2A3647"/></g></svg>
+                                <input class="form-input" type="date" id="task-due" onchange="updateCreateButton()"
+                                    oninput="updateCreateButton()">
+                                <svg class="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_94_448" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                        y="0" width="24" height="24">
+                                        <rect width="24" height="24" fill="#D9D9D9" />
+                                    </mask>
+                                    <g mask="url(#mask0_94_448)">
+                                        <path
+                                            d="M14.5 18C13.8 18 13.2083 17.7583 12.725 17.275C12.2417 16.7917 12 16.2 12 15.5C12 14.8 12.2417 14.2083 12.725 13.725C13.2083 13.2417 13.8 13 14.5 13C15.2 13 15.7917 13.2417 16.275 13.725C16.7583 14.2083 17 14.8 17 15.5C17 16.2 16.7583 16.7917 16.275 17.275C15.7917 17.7583 15.2 18 14.5 18ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6C3 5.45 3.19583 4.97917 3.5875 4.5875C3.97917 4.19583 4.45 4 5 4H6V3C6 2.71667 6.09583 2.47917 6.2875 2.2875C6.47917 2.09583 6.71667 2 7 2C7.28333 2 7.52083 2.09583 7.7125 2.2875C7.90417 2.47917 8 2.71667 8 3V4H16V3C16 2.71667 16.0958 2.47917 16.2875 2.2875C16.4792 2.09583 16.7167 2 17 2C17.2833 2 17.5208 2.09583 17.7125 2.2875C17.9042 2.47917 18 2.71667 18 3V4H19C19.55 4 20.0208 4.19583 20.4125 4.5875C20.8042 4.97917 21 5.45 21 6V20C21 20.55 20.8042 21.0208 20.4125 21.4125C20.0208 21.8042 19.55 22 19 22H5ZM5 20H19V10H5V20ZM5 8H19V6H5V8Z"
+                                            fill="#2A3647" />
+                                    </g>
+                                </svg>
                             </div>
                             <span class="field-error d-none" id="error-due">This field is required</span>
                         </div>
@@ -108,25 +130,28 @@
                         <div class="form-group">
                             <label class="form-label">Priority</label>
                             <div class="prio-buttons">
-                                <button type="button" class="prio-btn prio-urgent" data-prio="urgent" onclick="setPriority(this)">
+                                <button type="button" class="prio-btn prio-urgent" data-prio="urgent"
+                                    onclick="setPriority(this)">
                                     Urgent
                                     <svg width="20" height="15" viewBox="0 0 20 14.51" fill="none">
-                                        <path d="M0 8.76 L10 0 L20 8.76 L17.5 8.76 L10 2.5 L2.5 8.76 Z"/>
-                                        <path d="M0 14.51 L10 5.75 L20 14.51 L17.5 14.51 L10 8.25 L2.5 14.51 Z"/>
+                                        <path d="M0 8.76 L10 0 L20 8.76 L17.5 8.76 L10 2.5 L2.5 8.76 Z" />
+                                        <path d="M0 14.51 L10 5.75 L20 14.51 L17.5 14.51 L10 8.25 L2.5 14.51 Z" />
                                     </svg>
                                 </button>
-                                <button type="button" class="prio-btn prio-medium prio-active" data-prio="medium" onclick="setPriority(this)">
+                                <button type="button" class="prio-btn prio-medium prio-active" data-prio="medium"
+                                    onclick="setPriority(this)">
                                     Medium
                                     <svg width="20" height="8" viewBox="0 0 20 8" fill="none">
-                                        <rect x="0" y="0" width="20" height="2.21" rx="1.1"/>
-                                        <rect x="0" y="5.24" width="20" height="2.21" rx="1.1"/>
+                                        <rect x="0" y="0" width="20" height="2.21" rx="1.1" />
+                                        <rect x="0" y="5.24" width="20" height="2.21" rx="1.1" />
                                     </svg>
                                 </button>
-                                <button type="button" class="prio-btn prio-low" data-prio="low" onclick="setPriority(this)">
+                                <button type="button" class="prio-btn prio-low" data-prio="low"
+                                    onclick="setPriority(this)">
                                     Low
                                     <svg width="20" height="15" viewBox="0 0 20 14.51" fill="none">
-                                        <path d="M0 0 L10 8.76 L20 0 L17.5 0 L10 6.26 L2.5 0 Z"/>
-                                        <path d="M0 5.75 L10 14.51 L20 5.75 L17.5 5.75 L10 12.01 L2.5 5.75 Z"/>
+                                        <path d="M0 0 L10 8.76 L20 0 L17.5 0 L10 6.26 L2.5 0 Z" />
+                                        <path d="M0 5.75 L10 14.51 L20 5.75 L17.5 5.75 L10 12.01 L2.5 5.75 Z" />
                                     </svg>
                                 </button>
                             </div>
@@ -135,7 +160,8 @@
                         <div class="form-group">
                             <label class="form-label">Assigned to</label>
                             <div class="custom-select" id="assign-select">
-                                <div class="form-input select-toggle" id="assign-toggle" onclick="toggleAssignDropdown()">
+                                <div class="form-input select-toggle" id="assign-toggle"
+                                    onclick="toggleAssignDropdown()">
                                     <span>Select contacts to assign</span>
                                     <span class="select-caret">&#9662;</span>
                                 </div>
@@ -147,12 +173,14 @@
                         <div class="form-group">
                             <label class="form-label">Category <span class="required">*</span></label>
                             <div class="custom-select" id="category-select">
-                                <div class="form-input select-toggle" id="category-toggle" onclick="toggleCategoryDropdown()">
+                                <div class="form-input select-toggle" id="category-toggle"
+                                    onclick="toggleCategoryDropdown()">
                                     <span id="category-selected" class="select-placeholder">Select task category</span>
                                     <span class="select-caret">&#9662;</span>
                                 </div>
                                 <div class="select-options d-none" id="category-options">
-                                    <div class="select-option" onclick="selectCategory('Technical Task')">Technical Task</div>
+                                    <div class="select-option" onclick="selectCategory('Technical Task')">Technical Task
+                                    </div>
                                     <div class="select-option" onclick="selectCategory('User Story')">User Story</div>
                                 </div>
                             </div>
@@ -183,7 +211,8 @@
                 <div class="form-footer">
                     <span class="required-hint"><span class="required">*</span>This field is required</span>
                     <div class="form-actions">
-                        <button type="button" class="btn-clear" onclick="clearTaskForm()">Clear <span class="btn-x">✕</span></button>
+                        <button type="button" class="btn-clear" onclick="clearTaskForm()">Clear <span
+                                class="btn-x">✕</span></button>
                         <button type="submit" class="btn-create" id="btn-create" disabled>
                             Create Task
                             <img src="../assets/icons/done.svg" alt="" class="btn-icon">
@@ -201,4 +230,5 @@
     <script src="../js/add_task.js"></script>
     <script src="../js/add_task_assign.js"></script>
 </body>
+
 </html>
