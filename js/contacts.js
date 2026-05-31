@@ -8,6 +8,7 @@ let loadedContacts = [];
 async function init() {
     initMain();
     loadedContacts = [];
+    checkUserStatus();
     await loadAndPrepareContacts();
     renderContacts();
 
@@ -216,4 +217,13 @@ async function deleteContact(id) {
 
         await init();
     } catch (error) { console.error("Fehler beim Löschen:", error); }
+}
+
+function checkUserStatus() {
+    try {
+        const sessionData = sessionStorage.getItem('currentUser');
+        if (!sessionData) return 'guest';
+        const user = JSON.parse(sessionData);
+        return user.name && /gast|guest/i.test(user.name) ? 'guest' : 'user';
+    } catch (e) { return 'guest'; }
 }
