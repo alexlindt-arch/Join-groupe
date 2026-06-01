@@ -1,5 +1,13 @@
 const BOARD_BASE_URL = 'https://remotestorage-c0469-default-rtdb.europe-west1.firebasedatabase.app';
 
+/* ── Guest task helpers (sessionStorage) ── */
+function getGuestTasks() {
+    try { return JSON.parse(sessionStorage.getItem('guestTasks')) || []; } catch (e) { return []; }
+}
+function saveGuestTasks(tasks) {
+    sessionStorage.setItem('guestTasks', JSON.stringify(tasks));
+}
+
 let allTasks = [];
 let currentDraggedTaskId = null;
 let editSelectedPrio = null;
@@ -17,6 +25,7 @@ async function initTasks() {
 }
 
 async function loadBoardTasks() {
+    if (checkIsGuest()) return getGuestTasks();
     try {
         const response = await fetch(`${BOARD_BASE_URL}/tasks.json`);
         const data = await response.json();
@@ -98,7 +107,7 @@ function showEmptyPlaceholders() {
     const texts = {
         todo: 'No tasks To do',
         inProgress: 'No tasks In progress',
-        awaitFeedback: 'No tasks In feedback',
+        awaitFeedback: 'No tasks Awaiting feedback',
         done: 'No tasks Done'
     };
     Object.entries(texts).forEach(([id, text]) => {
@@ -137,14 +146,18 @@ async function moveTo(status) {
     const task = allTasks.find(t => t.id == currentDraggedTaskId);
     if (!task) return;
     task.status = status;
-    try {
-        await fetch(`${BOARD_BASE_URL}/tasks/${task.id}.json`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ status })
-        });
-    } catch (e) {
-        console.error('Error updating task status:', e);
+    if (checkIsGuest()) {
+        saveGuestTasks(allTasks);
+    } else {
+        try {
+            await fetch(`${BOARD_BASE_URL}/tasks/${task.id}.json`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status })
+            });
+        } catch (e) {
+            console.error('Error updating task status:', e);
+        }
     }
     displayTasks(allTasks);
     currentDraggedTaskId = null;
@@ -236,9 +249,15 @@ function taskDetailTemplate(task) {
 
 async function deleteTask(id) {
     if (!confirm('Task wirklich löschen?')) return;
+    allTasks = allTasks.filter(t => t.id != id);
+    if (checkIsGuest()) {
+        saveGuestTasks(allTasks);
+        closeOverlay();
+        displayTasks(allTasks);
+        return;
+    }
     try {
         await fetch(`${BOARD_BASE_URL}/tasks/${id}.json`, { method: 'DELETE' });
-        allTasks = allTasks.filter(t => t.id != id);
         closeOverlay();
         displayTasks(allTasks);
     } catch (e) {
@@ -250,14 +269,18 @@ async function toggleSubtask(taskId, subtaskIndex) {
     const task = allTasks.find(t => t.id == taskId);
     if (!task || !task.subtasks) return;
     task.subtasks[subtaskIndex].done = !task.subtasks[subtaskIndex].done;
-    try {
-        await fetch(`${BOARD_BASE_URL}/tasks/${taskId}.json`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ subtasks: task.subtasks })
-        });
-    } catch (e) {
-        console.error('Error updating subtask:', e);
+    if (checkIsGuest()) {
+        saveGuestTasks(allTasks);
+    } else {
+        try {
+            await fetch(`${BOARD_BASE_URL}/tasks/${taskId}.json`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subtasks: task.subtasks })
+            });
+        } catch (e) {
+            console.error('Error updating subtask:', e);
+        }
     }
     refreshTaskCard(taskId);
     refreshSubtaskChecks(task);
@@ -294,6 +317,19 @@ async function openEditModal(id) {
 }
 
 async function loadBoardContacts() {
+    if (checkIsGuest()) {
+        try {
+            const res = await fetch('../db.json');
+            const data = await res.json();
+            const raw = Object.values(data.contacts || {});
+            return raw.filter(Boolean).map((c, i) => ({
+                id: String(c.id || i + 1),
+                name: c.name || '',
+                color: c.color || '#888',
+                initials: initialsFromName(c.name)
+            })).sort((a, b) => a.name.localeCompare(b.name));
+        } catch (e) { return []; }
+    }
     try {
         const response = await fetch(`${BOARD_BASE_URL}/contacts.json`);
         const data = await response.json();
@@ -484,16 +520,22 @@ async function saveEditedTask(id) {
         subtasks: editSubtasks
     };
     Object.assign(task, updates);
-    try {
-        await fetch(`${BOARD_BASE_URL}/tasks/${id}.json`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updates)
-        });
+    if (checkIsGuest()) {
+        saveGuestTasks(allTasks);
         closeOverlay();
         displayTasks(allTasks);
-    } catch (e) {
-        console.error('Error saving task:', e);
+    } else {
+        try {
+            await fetch(`${BOARD_BASE_URL}/tasks/${id}.json`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updates)
+            });
+            closeOverlay();
+            displayTasks(allTasks);
+        } catch (e) {
+            console.error('Error saving task:', e);
+        }
     }
     editSelectedPrio = null;
     editAssignedIds = [];

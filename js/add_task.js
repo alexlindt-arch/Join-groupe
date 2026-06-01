@@ -254,6 +254,13 @@ async function createTask() {
  * @returns {Promise<void>}
  */
 async function saveTask(task) {
+    if (checkIsGuest()) {
+        const guestTasks = JSON.parse(sessionStorage.getItem('guestTasks') || '[]');
+        task.id = guestTasks.length ? Math.max(...guestTasks.map(t => Number(t.id) || 0)) + 1 : 1;
+        guestTasks.push(task);
+        sessionStorage.setItem('guestTasks', JSON.stringify(guestTasks));
+        return;
+    }
     const id = await getNextTaskId();
     task.id = id;
     await fetch(`${ADDTASK_BASE_URL}/tasks/${id}.json`, {

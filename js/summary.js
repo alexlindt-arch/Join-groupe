@@ -18,10 +18,13 @@ async function initSummary() {
 
 
 /**
- * Loads all tasks from Firebase and normalizes them into an array.
+ * Loads all tasks: from sessionStorage for guests, from Firebase for users.
  * @returns {Promise<Object[]>} List of task objects (empty if none/unreachable).
  */
 async function loadTasks() {
+    if (typeof checkIsGuest === 'function' && checkIsGuest()) {
+        try { return JSON.parse(sessionStorage.getItem('guestTasks')) || []; } catch (e) { return []; }
+    }
     try {
         const response = await fetch(SUMMARY_TASKS_URL);
         const data = await response.json();

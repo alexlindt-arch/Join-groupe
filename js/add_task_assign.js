@@ -4,8 +4,12 @@
  */
 async function loadAssignContacts() {
     try {
-        const response = await fetch(ADDTASK_CONTACTS_URL);
-        const data = await response.json();
+        const url = (typeof checkIsGuest === 'function' && checkIsGuest())
+            ? '../db.json'
+            : ADDTASK_CONTACTS_URL;
+        const response = await fetch(url);
+        const raw = await response.json();
+        const data = (typeof checkIsGuest === 'function' && checkIsGuest()) ? raw.contacts : raw;
         if (!data) return [];
         return normalizeContacts(Array.isArray(data) ? data : Object.values(data));
     } catch (error) {

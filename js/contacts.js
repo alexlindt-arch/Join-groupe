@@ -226,6 +226,10 @@ async function deleteContact(id) {
 }
 
 function checkIsGuest() {
-    const user = sessionStorage.getItem('currentUser');
-    return user?.includes('Guest') || !user;
+    try {
+        const user = JSON.parse(sessionStorage.getItem('currentUser'));
+        return user?.isGuest === true;
+    } catch (e) {
+        return true;
+    }
 }

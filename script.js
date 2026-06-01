@@ -8,9 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initMain() {
-
     setHeaderAvatar();
     loadNavigation();
+}
+
+function checkIsGuest() {
+    try {
+        const user = JSON.parse(sessionStorage.getItem('currentUser'));
+        return user?.isGuest === true;
+    } catch (e) {
+        return true;
+    }
 }
 
 function getInitials(name) {
@@ -53,9 +61,8 @@ function setActiveNavLink() {
     document.querySelectorAll('.nav-link, .nav-bottom-link').forEach(link => {
         if (link.getAttribute('href')?.endsWith(page)) link.classList.add('nav-item--active');
     });
-    // Entferne aktiv von allen mobilen Links
+
     document.querySelectorAll('.mobil-nav-link').forEach(link => link.classList.remove('aktiv'));
-    // Setze aktiv nur für Privacy Policy oder Legal Notice
     if (page === 'privacy_policy.html') {
         document.querySelectorAll('.mobil-nav-link[href$="privacy_policy.html"]').forEach(link => link.classList.add('aktiv'));
     } else if (page === 'legal_notice.html') {
