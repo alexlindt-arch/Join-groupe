@@ -225,6 +225,20 @@
   }
 }
 
+@media (max-width: 435px) {
+  .btn-add-task {
+    width: 48px;
+    min-width: 48px;
+    padding: 8px;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .btn-add-task-text {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .board-main {
     padding: 108px 16px 24px;
