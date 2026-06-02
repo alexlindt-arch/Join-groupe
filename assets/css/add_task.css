@@ -472,7 +472,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .select-option:hover,
 .assign-option:hover {
-  background: #f6f7f8;
+  background: var( --light-gray-4);
 }
 
 .assign-option--active {
