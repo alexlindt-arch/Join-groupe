@@ -335,9 +335,14 @@
     padding: 120px 16px 24px;
     min-height: auto;
     gap: 20px;
+    overflow: visible;
   }
 
-  .summary-left { width: 100%; }
+  .summary-left {
+    width: 100%;
+    position: relative;
+    z-index: 15;
+  }
 
   @keyframes greetingFadeOut {
     to { opacity: 0; visibility: hidden; }

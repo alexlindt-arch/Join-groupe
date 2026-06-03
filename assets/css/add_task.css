@@ -322,7 +322,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width: 480px) {
   .add-task-main {
     height: auto;
-    padding: 108px 14px 24px;
+    padding: 120px 16px 24px;
+    overflow-y: visible;
   }
 
   .page-title {
