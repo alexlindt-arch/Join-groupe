@@ -333,7 +333,7 @@
 @media (max-width: 480px) {
   .summary-main {
     flex-direction: column;
-    padding: 40px 14px 24px;
+    padding: 48px 16px 24px;
     min-height: auto;
     gap: 20px;
   }
@@ -366,14 +366,14 @@
   .summary-heading {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
-    margin-bottom: 24px;
+    gap: 8px;
+    margin-bottom: 40px;
     width: auto;
   }
 
   .summary-title {
     font-family: 'Inter', sans-serif;
-    font-size: 38px;
+    font-size: 47px;
     font-weight: 700;
     line-height: 120%;
     color: #000000;
@@ -382,7 +382,7 @@
 
   .summary-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 120%;
     color: #2A3647;
@@ -391,133 +391,140 @@
 
   .summary-heading-divider {
     order: 2;
-    width: 72px;
+    width: 90px;
     height: 3px;
     background: #29ABE2;
     border: none;
-    margin-top: 6px;
+    margin-top: 8px;
   }
 
-  .summary-cards { gap: 12px; }
+  .summary-cards { gap: 18px; }
 
-  /* Wide row: 2 cards, flex so they always fit */
+  /* Wide row: 2 stat-cards, flex:1 so they share space evenly */
   .cards-row {
     justify-content: unset;
-    gap: 12px;
+    gap: 24px;
   }
 
   .stat-card {
     flex: 1;
     min-width: 0;
-    height: 88px;
-    border-radius: 16px;
-    padding: 12px 14px;
+    height: 110px;
+    border-radius: 20px;
+    padding: 16px;
     gap: 10px;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
   }
 
-  .stat-icon-circle { width: 34px; height: 34px; }
-  .stat-icon { width: 17px; height: 17px; }
+  .stat-icon-circle { width: 40px; height: 40px; }
+  .stat-icon { width: 20px; height: 20px; }
   .stat-info { gap: 2px; }
 
   .stat-number {
     font-family: 'Inter', sans-serif;
-    font-size: 36px;
+    font-size: 47px;
     font-weight: 600;
     line-height: 120%;
   }
 
   .stat-label {
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 120%;
   }
 
+  /* Urgency card: full width, 110px, centered content */
   .urgency-card {
     width: 100%;
-    height: 88px;
-    padding: 0 20px;
-    gap: 16px;
-    border-radius: 16px;
+    height: 110px;
+    padding: 28px 0;
+    gap: 20px;
+    border-radius: 20px;
     justify-content: center;
     align-items: center;
   }
 
-  .urgency-left { gap: 12px; }
+  .urgency-left { gap: 18px; }
 
-  .urgency-icon-circle { width: 34px; height: 34px; }
+  .urgency-icon-circle { width: 40px; height: 40px; }
   .urgency-info { gap: 2px; }
 
   .urgency-number {
     font-family: 'Inter', sans-serif;
-    font-size: 36px;
+    font-size: 47px;
     font-weight: 600;
     line-height: 120%;
   }
 
   .urgency-count-label {
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
   }
 
   .urgency-divider-vertical {
     width: 2px;
-    height: 56px;
+    height: 68px;
     background: #D1D1D1;
   }
 
-  .urgency-right { gap: 6px; }
+  .urgency-right { gap: 8px; }
 
   .urgency-date {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 120%;
   }
 
   .urgency-date-label {
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 120%;
   }
 
-  /* Small row: 3 cards, flex so they always fit */
+  /* Small row: 3 cards, flex:1 so they share space evenly */
   .cards-row-sm {
     justify-content: unset;
-    gap: 8px;
+    gap: 24px;
   }
 
   .stat-card-sm {
     flex: 1;
     min-width: 0;
-    height: 90px;
-    padding: 12px 4px;
-    gap: 6px;
-    border-radius: 16px;
+    height: 116px;
+    padding: 25px 0;
+    gap: 13px;
+    border-radius: 20px;
   }
 
   .stat-card-sm .stat-number {
     font-family: 'Inter', sans-serif;
-    font-size: 36px;
+    font-size: 47px;
     font-weight: 600;
     line-height: 120%;
   }
 
   .stat-card-sm .stat-label {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 120%;
     text-align: center;
-    padding: 0 4px;
+    padding: 0 6px;
+  }
+
+  /* Middle card: smaller label for longer "Tasks In Progress" text */
+  .cards-row-sm .stat-card-sm:nth-child(2) .stat-label {
+    font-size: 14px;
   }
 
   .greeting-time {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 400;
     color: #2A3647;
     text-align: center;
@@ -525,7 +532,7 @@
   }
 
   .greeting-name {
-    font-size: 42px;
+    font-size: 47px;
     font-weight: 700;
     color: #29ABE2;
     text-align: center;
