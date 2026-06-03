@@ -159,8 +159,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .prio-medium.prio-active {
   background: #FFA800;
   color: #ffffff;
-  font-size: 21px;
-  font-weight: 700;
   box-shadow: none;
 }
 

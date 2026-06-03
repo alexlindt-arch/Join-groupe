@@ -900,3 +900,118 @@ button.btn-add-task:active {
 #add-task-overlay .col-add-btn:hover {
   background: #F0F0F0;
 }
+
+@media (max-width: 425px) {
+  .add-task-modal {
+    padding: 20px;
+    max-width: 425px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .modal-close-btn {
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .add-task-modal .edit-input,
+  .add-task-modal .edit-textarea,
+  .add-task-modal .detail-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .add-task-modal {
+    max-width: 375px;
+    border-radius: 16px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .prio-btn {
+    height: 41px;
+    padding: 0 5px;
+    font-size: 16px;
+  }
+
+  .btn-clear {
+    width: fit-content;
+    height: 48px;
+    padding: 0 12px 0 12px;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .btn-create {
+    width: fit-content;
+    height: 48px;
+    padding: 0 12px 0 12px;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    font-size: 26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .add-task-modal .edit-input,
+  .add-task-modal .edit-textarea,
+  .add-task-modal .detail-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .add-task-modal {
+    max-width: 320px;
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .prio-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prio-btn {
+    height: 41px;
+    padding: 5px 5px;
+    font-size: 20px;
+  }
+
+  .select-toggle span {
+    font-size: 14px;
+  }
+
+  .modal-close-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .add-task-modal .edit-input,
+  .add-task-modal .edit-textarea,
+  .add-task-modal .detail-desc {
+    font-size: 13px;
+  }
+}
