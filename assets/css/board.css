@@ -234,6 +234,12 @@
     justify-content: center;
   }
 
+  .board-controls {
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+}
+
   .btn-add-task-text {
     display: none;
   }
@@ -324,6 +330,26 @@
     overflow-y: hidden;
     flex-wrap: nowrap;
   }
+}
+
+@media (max-width: 425px) {
+  .board-controls {
+    width: 100%;
+    gap: 20px;
+}
+}
+
+@media (max-width: 375px) {
+  .board-controls {
+    width: 80%;
+    gap: 20px;
+}
+}
+
+@media (max-width: 320px) {
+  .board-controls {
+    gap: 10px;
+}
 }
 
 .task-card {
