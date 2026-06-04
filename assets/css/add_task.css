@@ -307,7 +307,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* ── Einspaltig ≤1024px ── */
 @media (max-width: 1024px) {
-  .add-task-main { padding: 206px 40px 0px 24px; }
   .form-columns  { flex-direction: column; gap: 24px; }
   .form-divider-vertical { display: none; }
 }
