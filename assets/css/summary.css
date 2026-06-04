@@ -495,7 +495,7 @@
     gap: 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .stat-icon-circle {
@@ -531,10 +531,10 @@
   .urgency-card {
     width: 100%;
     height: 110px;
-    padding: 28px 0;
+    padding: 28px 20px;
     gap: 20px;
     border-radius: 20px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
 
